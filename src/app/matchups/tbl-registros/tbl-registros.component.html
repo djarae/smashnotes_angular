@@ -1,0 +1,33 @@
+<div class="container justify-content-center">
+  <div class="container col-6 rounded bg-transparent  text-dark ">
+    <table class="table mi-tabla table-striped table-bordered">
+      <thead>
+        <tr>
+          <th scope="col"  class="textEncabezado">#</th>
+          <th scope="col"  class="textEncabezado" >Emisor</th>
+          <th scope="col"  class="textEncabezado">Receptor</th>
+          <th scope="col"  class="textEncabezado">Mov</th>
+          <th scope="col"  class="textEncabezado">FD</th>
+          <th scope="col"  class="textEncabezado">BF</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of valor">
+          <td class="textNormal">{{ item.id }}</td>
+          <td  class="textNormal">{{ item.nombrePersonajeEmisor }}</td>
+          <td  class="textNormal">{{ item.nombrePersonajeReceptor }}</td>
+          <td class="textNormal">{{ item.nombreMovimiento }}</td>
+          <td  class="textNormal">{{ item.porcentajeKO }}%</td>
+          <td  class="textNormal">X%</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <div>
+        <tr>
+          <th><button onClick={paginaMenos} >Izquierda</button></th>
+          <th><p>{Paginacion}</p></th>
+          <th><button  onClick={paginaMas}>Derecha</button></th>
+        </tr>
+      </div> -->
+  </div>
+</div>

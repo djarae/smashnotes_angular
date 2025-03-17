@@ -1,0 +1,62 @@
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #803db4, #46197b); 
+    color: white;
+    font-weight: 600;
+    padding: 0 16px;
+    border-bottom: 2px solid #46197b;  /* Borde inferior en color ambar brillante */
+    border-radius: 5px;  /* Bordes redondeados */
+    justify-content: center; /* Centra los elementos en la barra */
+  }
+  
+  .toolbar img {
+    margin: 0 16px;
+    border-radius: 50%;
+  }
+  
+  .toolbar span {
+    color: black; /* Color oscuro de la paleta UVA */
+    font-weight: 600;
+    font-size: 1.5rem; /* Tamaño ajustado para el texto */
+    align-items: center; /* Centra el texto verticalmente */
+    text-align: center; /* Centra el texto horizontalmente */
+  }
+
+  .toolbar img:hover {
+    background-color: #e59aff;
+}
+  
+
+@media screen and (max-width: 430px) {
+  .toolbar {
+    height: 50px;
+    font-size: 1rem;
+    width:92%;
+  /* visibility: hidden; */
+
+  }
+  .toolbar img {
+  /* visibility: hidden; */
+  }
+
+  .toolbar span {
+    font-weight: 400;
+    font-size: 1.2rem; /* Tamaño ajustado para el texto */
+    color: white
+  }
+ 
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffb300; /* Amber */
+
+
+    color:black;
+    width: 300px;
+}
+
+dialog div {
+    margin-bottom: 10px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #2b0c5e;
+    color:white;
+}
+
+button:first-child {
+    float: right;
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.selectHover1:hover {
+    background-color: greenyellow;
+}
+
+.selectHover2:hover {
+    background-color: red;
+}
+
+.selectHover:hover {
+    background-color: goldenrod;
+}
