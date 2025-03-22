@@ -16,8 +16,8 @@ export class AgrRegistroComponent {
 
 
   async ngOnInit() {
-    const response = await fetch(url_entorno()+'/apiSmash/GetListPersonajes');
-   const responseEscenarios = await fetch(url_entorno()+'/apiSmash/GetListEscenarios');
+    const response = await fetch(url_entorno()+'/apiSmash/Personajes');
+   const responseEscenarios = await fetch(url_entorno()+'/apiSmash/Escenarios');
    
     this.body = await response.json();
     this.lstPersonajes=this.body;
@@ -25,7 +25,7 @@ export class AgrRegistroComponent {
     this.lstEscenarios=this.body;
 
     //El get posicion escenario ,deberia cargarse una vez selecciono escenario
-    // const responsePosiciones = await fetch(url_entorno()+'/apiSmash/GetListPosicionesEscenarios');
+    // const responsePosiciones = await fetch(url_entorno()+'/apiSmash/PosicionesEscenarios');
     // this.body = await responsePosiciones.json();
     // this.lstPosiciones=this.body;
 

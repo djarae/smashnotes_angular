@@ -1,3 +1,5 @@
+/* You can add global styles to this file, and also import other style files */
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -11,6 +13,7 @@ body {
     text-align: center;
   }
   
+  /* Title Styles */
   h2 {
     color: #ffb300; 
     font-size: 24px;
@@ -23,33 +26,9 @@ body {
     margin-top: 20px;
   }
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
+.content{
+  background-color: black;
+}
 
   /* Table Styles */
   .table {
@@ -60,7 +39,7 @@ body {
    /* background-color:  #bb6e26;*/
     border-radius: 10px;
     overflow: hidden;
-   box-shadow: 0px 4px 10px rgba(255, 193, 7, 0.3);
+    box-shadow: 0px 4px 10px rgba(255, 193, 7, 0.3);
   }
   
   /* Table Headers */
@@ -85,7 +64,7 @@ body {
   }
   
   .table tbody tr:nth-child(even) {
-    background-color: rgba(255, 193, 7, 0.3);
+    background-color: rgba(255, 193, 7, 0.1);
   }
   
   .table tbody tr:hover {
@@ -93,22 +72,6 @@ body {
     transition: background 0.3s;
   }
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   /* Table Data */
   .textEncabezado {
     font-weight: bold;

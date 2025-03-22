@@ -12,7 +12,7 @@ export class TblRegistrosComponent  implements OnInit {
 
   async ngOnInit() {
     console.log("apiurl =>>>>",url_entorno())
-    const response = await fetch(url_entorno()+'/apiSmash/GetListRegistros');
+    const response = await fetch(url_entorno()+'/apiSmash/Registros');
     this.body = await response.json();
     //Muy importante , importamos el "body" a un "any" para leerlo
     this.valor=this.body;
