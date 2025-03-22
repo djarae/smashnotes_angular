@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import axios from "axios";
+import {url_entorno} from '../../configs/url_entorno';
+
+
 @Component({
   selector: 'app-matchups',
   templateUrl: './matchups.component.html',
@@ -8,18 +10,18 @@ import axios from "axios";
 export class MatchupsComponent {
   async probarGETConexionApiSpringboot() {
     console.log("boton springboot");
-    const response = await fetch('http://127.0.0.1:8080/apiSmash');
+    const response = await fetch(url_entorno()+'/apiSmash');
     const body = await response.text();
     console.log(body);
   }
   async probarGetConObjetos() {
     console.log("boton springboot");
-    const response = await fetch('http://127.0.0.1:8080/apiSmash/Object');
+    const response = await fetch(url_entorno()+'/apiSmash/Object');
     const body = await response.text();
     console.log(body);
   }
   async probarPOSTConexionApiSpringboot() {
-    const response = await fetch('http://127.0.0.1:8080/apiSmash/holapost', {
+    const response = await fetch(url_entorno()+'/apiSmash/holapost', {
       method: "POST"
     });
     const body = await response.text();
@@ -33,7 +35,7 @@ export class MatchupsComponent {
       "itemprice": 400
     };
     const response = await
-      fetch('http://127.0.0.1:8080/apiSmash/holapostBody', {
+      fetch(url_entorno()+'/apiSmash/holapostBody', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

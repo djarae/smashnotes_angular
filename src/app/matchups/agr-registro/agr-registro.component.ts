@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {url_entorno} from '../../../configs/url_entorno';
 
 @Component({
   selector: 'app-agr-registro',
@@ -15,10 +16,8 @@ export class AgrRegistroComponent {
 
 
   async ngOnInit() {
-   // const response = await fetch('http://127.0.0.1:8080/apiSmash/GetListPersonajes');
-    const response = await fetch('https://smashnotes-springboot-back-1.onrender.com/apiSmash/GetListPersonajes');
-    //const responseEscenarios = await fetch('http://127.0.0.1:8080/apiSmash/GetListEscenarios');
-    const responseEscenarios = await fetch('https://smashnotes-springboot-back-1.onrender.com/apiSmash/GetListEscenarios');
+    const response = await fetch(url_entorno()+'/apiSmash/GetListPersonajes');
+   const responseEscenarios = await fetch(url_entorno()+'/apiSmash/GetListEscenarios');
    
     this.body = await response.json();
     this.lstPersonajes=this.body;
@@ -26,7 +25,7 @@ export class AgrRegistroComponent {
     this.lstEscenarios=this.body;
 
     //El get posicion escenario ,deberia cargarse una vez selecciono escenario
-    // const responsePosiciones = await fetch('http://127.0.0.1:8080/apiSmash/GetListPosicionesEscenarios');
+    // const responsePosiciones = await fetch(url_entorno()+'/apiSmash/GetListPosicionesEscenarios');
     // this.body = await responsePosiciones.json();
     // this.lstPosiciones=this.body;
 
@@ -61,7 +60,7 @@ const obj = {
   "porcentajeKO":0
 };
 const response = await
-fetch('http://127.0.0.1:8080/apiSmash/PostRegistro',{ 
+fetch(url_entorno()+'/apiSmash/PostRegistro',{ 
 method: "POST",
 headers: {
 "Content-Type": "application/json",
