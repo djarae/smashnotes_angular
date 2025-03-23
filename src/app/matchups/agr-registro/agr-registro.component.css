@@ -32,6 +32,14 @@ button:first-child {
     font-weight: bold;
 }
 
+.botonx {
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+}
+
+
+
+
 .selectHover1:hover {
     background-color: greenyellow;
 }
@@ -42,4 +50,29 @@ button:first-child {
 
 .selectHover:hover {
     background-color: goldenrod;
+}
+
+
+
+
+
+
+
+
+.fila {
+    display: flex;
+    align-items: center; /* Alinea verticalmente label y select */
+    gap: 10px; /* Espaciado entre el label y el select */
+    width: 100%;
+}
+
+.fila label {
+    white-space: nowrap; /* Evita que el label se divida en varias líneas */
+}
+
+.fila select {
+    flex: 1; /* Permite que el select ocupe el espacio disponible */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }

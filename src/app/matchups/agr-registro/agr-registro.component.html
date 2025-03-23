@@ -1,37 +1,36 @@
 <dialog #myDialog>
-    <div class="boton">
+    <div class="botonx">
         <a (click)="myDialog.close()">X</a>
     </div>
-    <div>
+    <div class="fila">
         <label>Emisor:</label>
         <select class="selectHover1" name="miselect" [(ngModel)]="selectPersonaje">
             <option *ngFor="let item of lstPersonajes">
                 {{item.nombre }}
             </option>
         </select>
-        {{selectPersonaje}}
     </div>
-    <div>
-        <label>Receptor:</label>
+    <div class="fila">
+        <label>Receptor      :</label>
         <select class="selectHover2">
             <option *ngFor="let item of lstPersonajes">
                 {{item.nombre }}
             </option>
         </select>
     </div>
-    <div>
-        <label>Escenario:</label>
+    <div class="fila">
+        <label>Escenario :</label>
         <select class="selectHover">
             <option *ngFor="let item of lstEscenarios">
                 {{item.nombre }}
             </option>
         </select>
     </div>
-    <div>
-        <label>Porcentaje:</label>
+    <div class="fila">
+        <label>Porcentaje :</label>
         <input type="text" id="txtPorcentajeKo">
     </div>
-    <div class="boton">
+    <div class="boton ">
         <a (click)="addNuevoPorcentajeKO()"> AGREGAR  </a>
     </div>
 </dialog>
