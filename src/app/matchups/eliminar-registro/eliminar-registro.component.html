@@ -1,0 +1,20 @@
+<dialog #myDialog>
+    <div class="botonx">
+        <a (click)="myDialog.close()">X</a>
+    </div>
+   
+    <div>
+        <a (click)="deleteRegistro()"> ¿Estas seguro que deseas eliminar el registro?  </a>
+    </div>
+
+    <div class="boton ">
+        <a (click)="deleteRegistro()"> Eliminar  </a>
+    </div>
+</dialog>
+<div className="button-container">
+    <a
+    class="boton" (click)="myDialog.show()"
+    >
+    <img src="https://img.icons8.com/?size=100&id=67884&format=png&color=FFFFFF" alt="Edit Icon" style="width: 22px; height: 22px;" />
+    </a>
+  </div>

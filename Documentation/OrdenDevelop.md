@@ -1,5 +1,4 @@
 # Orden develop:
-
 - 1 Crear version funcional rapido con buenas practicas
 - 2 Estructurar codigo(ordenar repos ,http calls etc)
 - 3 Funcionalidades futuras :
