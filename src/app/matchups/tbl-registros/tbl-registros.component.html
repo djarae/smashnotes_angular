@@ -7,8 +7,8 @@
           <th scope="col"  class="textEncabezado" >Emisor</th>
           <th scope="col"  class="textEncabezado">Receptor</th>
           <th scope="col"  class="textEncabezado">Mov</th>
-          <th scope="col"  class="textEncabezado">FD</th>
-          <th scope="col"  class="textEncabezado">BF</th>
+          <th scope="col"  class="textEncabezado">Stage</th>
+          <th scope="col"  class="textEncabezado">KO%</th>
           <th scope="col"  class="textEncabezado"></th>
           <th scope="col"  class="textEncabezado"></th>
         </tr>
@@ -19,11 +19,13 @@
           <td  class="textNormal">{{ item.nombrePersonajeEmisor }}</td>
           <td  class="textNormal">{{ item.nombrePersonajeReceptor }}</td>
           <td class="textNormal">{{ item.nombreMovimiento }}</td>
+          <td class="textNormal">{{ item.nombreEscenario }}</td>
+
           <td  class="textNormal">{{ item.porcentajeKO }}%</td>
-          <td  class="textNormal">X%</td>
           <td class="textNormal">
-            <!-- <img     src="https://img.icons8.com/ios/50/FFFFFF/edit--v1.png" alt="Edit Icon" style="width: 22px; height: 22px;" /> -->
-            <app-editar-registro></app-editar-registro>
+            <app-editar-registro 
+              [idPjReceptor]="item.idPersonajeReceptor">
+            </app-editar-registro>
           </td>
           <td  class="textNormal"> 
             <app-eliminar-registro></app-eliminar-registro>
