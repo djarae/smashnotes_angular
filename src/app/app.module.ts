@@ -4,7 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+
+//Angular Material
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 //Hijos
 import { MatchupsComponent } from './matchups/matchups.component';
@@ -33,7 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule ,
-    MatButtonModule     
+    MatButtonModule,
+    MatSnackBarModule     
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,7 +7,7 @@
           <th scope="col"  class="textEncabezado" >Emisor</th>
           <th scope="col"  class="textEncabezado">Receptor</th>
           <th scope="col"  class="textEncabezado">Mov</th>
-          <th scope="col"  class="textEncabezado">Stage</th>
+          <th scope="col"  class="textEncabezado">Escenario</th>
           <th scope="col"  class="textEncabezado">KO%</th>
           <th scope="col"  class="textEncabezado"></th>
           <th scope="col"  class="textEncabezado"></th>
@@ -20,11 +20,14 @@
           <td  class="textNormal">{{ item.nombrePersonajeReceptor }}</td>
           <td class="textNormal">{{ item.nombreMovimiento }}</td>
           <td class="textNormal">{{ item.nombreEscenario }}</td>
-
           <td  class="textNormal">{{ item.porcentajeKO }}%</td>
           <td class="textNormal">
             <app-editar-registro 
-              [idPjReceptor]="item.idPersonajeReceptor">
+              [inputIdPjReceptor]="item.idPersonajeReceptor"
+              [inputIdEscenarioInput]="item.idEscenario"
+              [inputIdKOInput]="item.porcentajeKO"
+              (actualizarLista)="cargarRegistros()">
+              >
             </app-editar-registro>
           </td>
           <td  class="textNormal"> 
@@ -33,5 +36,9 @@
         </tr>
       </tbody>
     </table>
+    <app-agr-registro
+    (actualizarLista)="cargarRegistros()"
+    ></app-agr-registro>
+
   </div>
 </div>
