@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-
+import { Component , Input,EventEmitter,Output} from '@angular/core';
+import { registroService} from '../../../services/matchups/registro.service';
+//angular material
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-eliminar-registro',
   templateUrl: './eliminar-registro.component.html',
@@ -7,17 +9,21 @@ import { Component } from '@angular/core';
 })
 export class EliminarRegistroComponent {
  selectPersonaje: string[] = [];
-  lstPersonajes: any;
-  lstEscenarios: any;
+  @Input() inputIdRegistro !: number; // ID del registro a editar
+  @Output() actualizarLista = new EventEmitter<void>(); // Emitirá un evento sin datos
 
-  selectedPersonaje: any =0;  // Variable para almacenar el valor seleccionado
-  selectedEscenario: any = '';  // Variable para almacenar el valor seleccionado
-  porcentajeKo: any = '';  // Variable para almacenar el valor seleccionado
+  constructor(private snackBar: MatSnackBar) {}
 
-  
 
   async  deleteRegistro() {
-    console.log("Ingresamos a insertar ");
-    // const response = await new registroService().insertarRegistro(this.selectedPersonaje,this.selectedEscenario,this.porcentajeKo);
+    console.log("Ingresamos a insertar input id es : ",this.inputIdRegistro) 
+    const response = await new registroService().deleteRegistro(this.inputIdRegistro);
+    this.actualizarLista.emit(); // Luego, emite el evento para actualizar la tabla
+    // Muestra un mensaje por 2 segundos
+    this.snackBar.open(response, 'Cerrar', {
+      duration: 2000, // 2 segundos
+      verticalPosition: 'top', // Posición en pantalla
+      horizontalPosition: 'center'
+    });
    }
 }

@@ -23,6 +23,7 @@ export class EditarRegistroComponent {
   selectedEscenario: any = '';  // Variable para almacenar el valor seleccionado
   porcentajeKo: any = '';  // Variable para almacenar el valor seleccionado
   //Inputs desde el listado
+  @Input() inputIdRegistro !: number; // ID del registro a editar
   @Input() inputIdPjReceptor!: number;
   @Input() inputIdEscenarioInput!: number;
   @Input() inputIdKOInput!: number;
@@ -40,21 +41,16 @@ export class EditarRegistroComponent {
 
 
   async  updatePorcentajeKO() {
-    console.log("Receptor ,escenario y porcentaje son: ",this.selectedPersonaje,this.selectedEscenario,this.porcentajeKo);
+    console.log("Receptor ,escenario y porcentaje son: ",this.inputIdRegistro,this.selectedPersonaje,this.selectedEscenario,this.porcentajeKo);
     const response = await new registroService().updateRegistro(
+      this.inputIdRegistro,
       this.selectedPersonaje,
       this.selectedEscenario,
       this.porcentajeKo
     );
-    console.log("response body",response);
-    console.log("antes del emit")
-    this.actualizarLista.emit(); // Luego, emite el evento para actualizar la tabla
-    console.log("despues del emit")
     
-
-
-    console.log("Response body:", response);
-
+  
+    this.actualizarLista.emit(); // Luego, emite el evento para actualizar la tabla
   // Muestra un mensaje por 2 segundos
   this.snackBar.open(response, 'Cerrar', {
     duration: 2000, // 2 segundos

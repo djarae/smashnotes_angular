@@ -29,11 +29,10 @@ export class registroService {
   }
 
 
-  async updateRegistro(receptor:any,escenario:any,KO:any): Promise<any> {
+  async updateRegistro(id:any, receptor:any,escenario:any,KO:any): Promise<any> {
     console.log("desde el service receptor ,escenario y porcentaje son: ",receptor,escenario,KO);
-
     const obj = {
-      "id": 1,
+      "id": id,
       "idPersonajeEmisor": 35,
       "idPersonajeReceptor": receptor,
       "idMovimiento": 16,
@@ -48,6 +47,22 @@ export class registroService {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(obj)
+    }
+    );
+  const body = await response.text();
+  console.log("response body",body);
+    return body;
+  }
+  
+  async deleteRegistro(id:any){
+     console.log("desde el service delete id es: ",id);
+     var urltosend = '/apiSmash/Registro/'+id;
+     console.log("url to send ",urltosend);
+    const response = await fetch(url_entorno() + urltosend, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      }
     }
     );
   const body = await response.text();

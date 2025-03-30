@@ -23,6 +23,7 @@
           <td  class="textNormal">{{ item.porcentajeKO }}%</td>
           <td class="textNormal">
             <app-editar-registro 
+              [inputIdRegistro]="item.id"
               [inputIdPjReceptor]="item.idPersonajeReceptor"
               [inputIdEscenarioInput]="item.idEscenario"
               [inputIdKOInput]="item.porcentajeKO"
@@ -30,8 +31,11 @@
               >
             </app-editar-registro>
           </td>
-          <td  class="textNormal"> 
-            <app-eliminar-registro></app-eliminar-registro>
+          <td  class="textNormal">  
+          <app-eliminar-registro
+              [inputIdRegistro]="item.id"
+              (actualizarLista)="cargarRegistros()">
+          </app-eliminar-registro>
             </td>
         </tr>
       </tbody>
