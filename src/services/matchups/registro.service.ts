@@ -1,6 +1,14 @@
 import { url_entorno } from '../../configs/url_entorno';
 export class registroService {
 
+  async getAllRegistros(): Promise<any> {
+    console.log("desde el service getAllRegistros");
+    const response =await fetch(url_entorno() + '/apiSmash/Registros');
+    const body = await response.json();
+    console.log("response body",body);
+    return body;
+  }
+
   async insertarRegistro(receptor:any,escenario:any,KO:any): Promise<any> {
     console.log("dsede srevice insertar receptor ,escenario y porcentaje son: ",receptor,escenario,KO);
     //Creamos el json para enviar data

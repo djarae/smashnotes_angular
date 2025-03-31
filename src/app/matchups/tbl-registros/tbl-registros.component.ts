@@ -1,5 +1,6 @@
 import { Component , OnInit } from '@angular/core';
 import {url_entorno} from '../../../configs/url_entorno';
+import { registroService } from 'src/services/matchups/registro.service';
 
 @Component({
   selector: 'app-tbl-registros',
@@ -14,9 +15,7 @@ export class TblRegistrosComponent  implements OnInit {
   }
 
   async cargarRegistros() {
-    const response = await fetch(url_entorno() + '/apiSmash/Registros');
-    this.valor = await response.json();
-    console.log("Registros actualizados:", this.valor);
-    this.valor = [...this.valor]; 
+    const response =  await new registroService().getAllRegistros();
+    this.valor = await response; this.valor = [...this.valor]; 
   }
 }
