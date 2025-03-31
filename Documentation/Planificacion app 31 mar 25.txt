@@ -1,0 +1,15 @@
+Planif: "Funcionalidad > Resto (Estilo;Tecnos;Estructura;Validaciones;Seguridad)"
+
+Fin de semana vie 4  a  sab 6  : BackupSQL
+Fin de semana vie 11 a  sab 13 : Api - StartGG (Basico y routing-angular)
+Fin de semana vie 20 a  sab 22 : Mobile minimalista(solo CRUD minimalista)
+Idealmente...todo esto el finde minimalista
+
+Otros dias :
+ Auth:
+ 	Registro: Hashear Password 
+	Login: JWT + Angular Guardar JWT
+ Orm:
+	Utilizar Spring Data JPA
+
+
