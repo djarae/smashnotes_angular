@@ -28,11 +28,13 @@ body {
   
 .content{
   background-color: black;
+  margin-top: 40px;
 }
 
   /* Table Styles */
   .table {
-    width: 80%;
+    width: 100%;
+ 
     margin: auto;
     border-collapse: collapse;
     background-color: #1e1e1e;

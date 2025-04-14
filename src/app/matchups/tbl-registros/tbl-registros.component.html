@@ -1,5 +1,6 @@
 <div class="container justify-content-center">
   <div class="container col-6 rounded bg-transparent  text-dark ">
+    
     <table class="table mi-tabla table-striped table-bordered">
       <thead>
         <tr>
@@ -7,6 +8,7 @@
           <th scope="col"  class="textEncabezado" >Emisor</th>
           <th scope="col"  class="textEncabezado">Receptor</th>
           <th scope="col"  class="textEncabezado">Mov</th>
+          <th scope="col"  class="textEncabezado">Rage</th>
           <th scope="col"  class="textEncabezado">Escenario</th>
           <th scope="col"  class="textEncabezado">KO%</th>
           <th scope="col"  class="textEncabezado"></th>
@@ -19,6 +21,7 @@
           <td  class="textNormal">{{ item.nombrePersonajeEmisor }}</td>
           <td  class="textNormal">{{ item.nombrePersonajeReceptor }}</td>
           <td class="textNormal">{{ item.nombreMovimiento }}</td>
+          <td class="textNormal">{{ item.rage }}%</td>
           <td class="textNormal">{{ item.nombreEscenario }}</td>
           <td  class="textNormal">{{ item.porcentajeKO }}%</td>
           <td class="textNormal">

@@ -19,9 +19,13 @@ export class EditarRegistroComponent {
   lstPersonajes: any;
   lstEscenarios: any;
   //Bindings de los select
-  selectedPersonaje: any =0;  // Variable para almacenar el valor seleccionado
+
+  selectedPersonajeReceptor: any =0;  // Variable para almacenar el valor seleccionado
+  selectedPersonajeEmisor : any =0;
   selectedEscenario: any = '';  // Variable para almacenar el valor seleccionado
+  textboxRage: any =''
   porcentajeKo: any = '';  // Variable para almacenar el valor seleccionado
+
   //Inputs desde el listado
   @Input() inputIdRegistro !: number; // ID del registro a editar
   @Input() inputIdPjReceptor!: number;
@@ -34,17 +38,17 @@ export class EditarRegistroComponent {
   async ngOnInit() {
     this.lstPersonajes = await new personajeService().getPersonajes();
     this.lstEscenarios = await new escenarioService().getEscenarios();
-    this.selectedPersonaje = this.inputIdPjReceptor;
+    this.selectedPersonajeReceptor = this.inputIdPjReceptor;
     this.selectedEscenario = this.inputIdEscenarioInput;
     this.porcentajeKo = this.inputIdKOInput;
   }
 
 
   async  updatePorcentajeKO() {
-    console.log("Receptor ,escenario y porcentaje son: ",this.inputIdRegistro,this.selectedPersonaje,this.selectedEscenario,this.porcentajeKo);
+    console.log("Receptor ,escenario y porcentaje son: ",this.inputIdRegistro,this.selectedPersonajeReceptor,this.selectedEscenario,this.porcentajeKo);
     const response = await new registroService().updateRegistro(
       this.inputIdRegistro,
-      this.selectedPersonaje,
+      this.selectedPersonajeReceptor,
       this.selectedEscenario,
       this.porcentajeKo
     );

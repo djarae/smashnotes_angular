@@ -15,12 +15,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./agr-registro.component.css']
 })
 export class AgrRegistroComponent {
-  selectPersonaje: string[] = [];
   lstPersonajes: any;
   lstEscenarios: any;
 
-  selectedPersonaje: any =0;  // Variable para almacenar el valor seleccionado
+  selectedPersonajeReceptor: any =0;  // Variable para almacenar el valor seleccionado
+  selectedPersonajeEmisor : any =0;
   selectedEscenario: any = '';  // Variable para almacenar el valor seleccionado
+  textboxRage: any =''
   porcentajeKo: any = '';  // Variable para almacenar el valor seleccionado
 
 
@@ -35,7 +36,7 @@ export class AgrRegistroComponent {
 
   async addNuevoPorcentajeKO() {
    console.log("Ingresamos a insertar ");
-   const response = await new registroService().insertarRegistro(this.selectedPersonaje,this.selectedEscenario,this.porcentajeKo);
+   const response = await new registroService().insertarRegistro(this.selectedPersonajeReceptor,this.selectedEscenario,this.porcentajeKo);
    
    console.log("response body",response);
    console.log("antes del emit")
