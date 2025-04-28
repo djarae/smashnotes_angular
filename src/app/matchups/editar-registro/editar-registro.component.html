@@ -41,6 +41,16 @@
     </div>
 
     <div class="fila">
+        <label>Movimiento :</label>
+        <select [(ngModel)]="selectedMovimiento" class="selectHover">
+            <option *ngFor="let item of lstMovimientos"  [value]="item.id">
+                {{item.nombre }}
+            </option>
+        </select>
+        <!-- <p>Selected: {{ selectedEscenario }}</p> -->
+    </div>
+
+    <div class="fila">
         <label>Rage :</label>
         <input [(ngModel)]="textboxRage" type="text" id="txtPorcentajeKo" class="selectHover">
         <!-- <p>Selected: {{ selectedPersonaje }}</p> -->

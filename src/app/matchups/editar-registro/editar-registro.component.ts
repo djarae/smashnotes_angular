@@ -3,7 +3,7 @@ import { url_entorno } from '../../../configs/url_entorno';
 import { personajeService } from '../../../services/matchups/personaje.service';
 import { escenarioService } from '../../../services/matchups/escenario.service';
 import { registroService} from '../../../services/matchups/registro.service';
-
+import { movimientoService } from 'src/services/matchups/movimiento.service';
 //angular material
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -18,19 +18,24 @@ export class EditarRegistroComponent {
   selectPersonaje: string[] = [];
   lstPersonajes: any;
   lstEscenarios: any;
+  lstMovimientos: any;
   //Bindings de los select
 
   selectedPersonajeReceptor: any =0;  // Variable para almacenar el valor seleccionado
   selectedPersonajeEmisor : any =0;
-  selectedEscenario: any = '';  // Variable para almacenar el valor seleccionado
-  textboxRage: any =''
-  porcentajeKo: any = '';  // Variable para almacenar el valor seleccionado
+  selectedMovimiento:any=0;
+  selectedEscenario: any = 0;  // Variable para almacenar el valor seleccionado
+  textboxRage: any =0
+  porcentajeKo: any = 0;  // Variable para almacenar el valor seleccionado
 
   //Inputs desde el listado
   @Input() inputIdRegistro !: number; // ID del registro a editar
+  @Input() inputIdPjEmisor!: number;
   @Input() inputIdPjReceptor!: number;
-  @Input() inputIdEscenarioInput!: number;
-  @Input() inputIdKOInput!: number;
+  @Input() inputIdEscenario!: number;
+  @Input() inputIdMovimiento!: number;
+  @Input() inputIdKO!: number;
+  @Input() inputRage!: number; // Rage del personaje receptor
   //Actualizar el componente padre
   @Output() actualizarLista = new EventEmitter<void>(); // Emitirá un evento sin datos
   constructor(private snackBar: MatSnackBar) {}
@@ -38,19 +43,26 @@ export class EditarRegistroComponent {
   async ngOnInit() {
     this.lstPersonajes = await new personajeService().getPersonajes();
     this.lstEscenarios = await new escenarioService().getEscenarios();
+    this.lstMovimientos = await new movimientoService().getMovimientos();
+    this.selectedPersonajeEmisor = this.inputIdPjEmisor;
     this.selectedPersonajeReceptor = this.inputIdPjReceptor;
-    this.selectedEscenario = this.inputIdEscenarioInput;
-    this.porcentajeKo = this.inputIdKOInput;
+    this.selectedEscenario = this.inputIdEscenario;
+    this.selectedMovimiento = this.inputIdMovimiento;
+    this.porcentajeKo = this.inputIdKO;
+    this.textboxRage = this.inputRage; // Rage del personaje receptor
   }
 
 
   async  updatePorcentajeKO() {
-    console.log("Receptor ,escenario y porcentaje son: ",this.inputIdRegistro,this.selectedPersonajeReceptor,this.selectedEscenario,this.porcentajeKo);
+    console.log("Receptor ,escenario y porcentaje son: ",this.inputIdRegistro,this.selectedPersonajeEmisor,this.selectedPersonajeReceptor,this.selectedMovimiento,this.selectedEscenario,this.porcentajeKo,this.textboxRage);
     const response = await new registroService().updateRegistro(
       this.inputIdRegistro,
+      this.selectedPersonajeEmisor,
       this.selectedPersonajeReceptor,
       this.selectedEscenario,
-      this.porcentajeKo
+      this.selectedMovimiento,
+      this.porcentajeKo,
+      this.textboxRage
     );
     
   

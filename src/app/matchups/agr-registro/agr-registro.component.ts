@@ -2,6 +2,7 @@ import { Component,EventEmitter,Output } from '@angular/core';
 import { url_entorno } from '../../../configs/url_entorno';
 import { personajeService } from '../../../services/matchups/personaje.service';
 import { escenarioService } from '../../../services/matchups/escenario.service';
+import { movimientoService } from '../../../services/matchups/movimiento.service';
 import { registroService} from '../../../services/matchups/registro.service';
 
 
@@ -17,10 +18,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AgrRegistroComponent {
   lstPersonajes: any;
   lstEscenarios: any;
+  lstMovimientos: any;
 
   selectedPersonajeReceptor: any =0;  // Variable para almacenar el valor seleccionado
   selectedPersonajeEmisor : any =0;
   selectedEscenario: any = '';  // Variable para almacenar el valor seleccionado
+  selectedMovimiento: any = '';  // Variable para almacenar el valor seleccionado
+
   textboxRage: any =''
   porcentajeKo: any = '';  // Variable para almacenar el valor seleccionado
 
@@ -32,11 +36,14 @@ export class AgrRegistroComponent {
   async ngOnInit() {
     this.lstPersonajes = await new personajeService().getPersonajes();
     this.lstEscenarios = await new escenarioService().getEscenarios();
+    this.lstMovimientos = await new movimientoService().getMovimientos();
+
+
   }
 
   async addNuevoPorcentajeKO() {
    console.log("Ingresamos a insertar ");
-   const response = await new registroService().insertarRegistro(this.selectedPersonajeReceptor,this.selectedEscenario,this.porcentajeKo);
+   const response = await new registroService().insertarRegistro(this.selectedPersonajeEmisor,this.selectedPersonajeReceptor,this.selectedEscenario,this.selectedMovimiento,this.porcentajeKo,this.textboxRage);
    
    console.log("response body",response);
    console.log("antes del emit")

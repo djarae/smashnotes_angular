@@ -9,16 +9,17 @@ export class registroService {
     return body;
   }
 
-  async insertarRegistro(receptor:any,escenario:any,KO:any): Promise<any> {
-    console.log("dsede srevice insertar receptor ,escenario y porcentaje son: ",receptor,escenario,KO);
+  async insertarRegistro(emisor:any,receptor:any,escenario:any,movimiento:any,KO:any,rage:any): Promise<any> {
+    console.log("dsede srevice insertar receptor ,escenario y porcentaje son: ",emisor, receptor,escenario,movimiento,KO);
     //Creamos el json para enviar data
     const obj = {
       "id": 0,
-      "idPersonajeEmisor": 0,
+      "idPersonajeEmisor": emisor,
       "idPersonajeReceptor": receptor,
-      "idMovimiento": 0,
+      "idMovimiento": movimiento,
       "idEscenario": escenario,
-      "porcentajeKO": KO
+      "porcentajeKO": KO,
+      "rage" :rage 
     };
 
     //Enviamos data
@@ -37,16 +38,20 @@ export class registroService {
   }
 
 
-  async updateRegistro(id:any, receptor:any,escenario:any,KO:any): Promise<any> {
-    console.log("desde el service receptor ,escenario y porcentaje son: ",receptor,escenario,KO);
+  async updateRegistro(id:any,emisor:any, receptor:any,escenario:any,movimiento:any,KO:any,rage:any): Promise<any> {
+    console.log("desde el service emisor,receptor ,escenario ,movimiento , porcentaje,rage son: ",emisor,receptor,escenario,movimiento,KO,rage);
+    console.log("aaatipos de porcentaje ko y rage son: ",typeof KO,typeof rage);
+   const rageInt=parseInt(rage);
+   console.log("aaatipos de porcentaje ko y rageINT son: ",typeof KO,typeof rageInt);
     const obj = {
       "id": id,
-      "idPersonajeEmisor": 35,
+      "idPersonajeEmisor": emisor,
       "idPersonajeReceptor": receptor,
-      "idMovimiento": 16,
+      "idMovimiento": movimiento,
        "idEscenario": escenario,
       "idPosicion": 1,
-      "porcentajeKO": KO
+      "porcentajeKO": KO,
+      "rage" : 300
     }
     const response = await
     fetch(url_entorno() + '/apiSmash/Registro', {
