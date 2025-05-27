@@ -1,54 +1,86 @@
 <div class="container justify-content-center">
   <div class="container col-6 rounded bg-transparent  text-dark ">
-    
+
     <table class="table mi-tabla table-striped table-bordered">
+
       <thead>
         <tr>
-          <th scope="col"  class="textEncabezado">#</th>
-          <th scope="col"  class="textEncabezado">Emisor</th>
-          <th scope="col"  class="textEncabezado">Receptor</th>
-          <th scope="col"  class="textEncabezado">Mov</th>
-          <th scope="col"  class="textEncabezado">Rage</th>
-          <th scope="col"  class="textEncabezado">Escenario</th>
-          <th scope="col"  class="textEncabezado">KO%</th>
-          <th scope="col"  class="textEncabezado"></th>
-          <th scope="col"  class="textEncabezado"></th>
+          <th scope="col" class="textEncabezado">#</th>
+          <th scope="col" class="textEncabezado">Emisor</th>
+          <th scope="col" class="textEncabezado">Receptor</th>
+          <th scope="col" class="textEncabezado">Mov</th>
+          <th scope="col" class="textEncabezado">Rage</th>
+          <th scope="col" class="textEncabezado">Escenario</th>
+          <th scope="col" class="textEncabezado">Posicion</th>
+          <th scope="col" class="textEncabezado">KO%</th>
+          <th scope="col" class="textEncabezado"></th>
+          <th scope="col" class="textEncabezado"></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of valor">
+        <tr>
+          <td class="textNormal"></td>
+          <td>
+            <div class="fila">
+              <input [(ngModel)]="filtroEmisor"  (ngModelChange)="cargarRegistros()"type="text" id="txtEmisor"  class="selectHover txtListado">
+            </div>
+          </td>
+          <td>
+            <div class="fila">
+              <input  [(ngModel)]="filtroReceptor"   (ngModelChange)="cargarRegistros()" type="text" id="txtReceptor" class="selectHover txtListado">
+            </div>
+          </td>
+          <td>
+            <div class="fila">
+              <input [(ngModel)]="filtroMov"  (ngModelChange)="cargarRegistros()"  type="text" id="txtMov" class="selectHover txtListado">
+            </div>
+          </td>
+          <td>
+            <div class="fila">
+              <input   [(ngModel)]="filtroRage"  (ngModelChange)="cargarRegistros()" type="text" id="txtRage" class="selectHover txtListado">
+            </div>
+          </td>
+          <td>
+            <div class="fila">
+              <input    [(ngModel)]="filtroStage"   (ngModelChange)="cargarRegistros()" type="text" id="txtStage" class="selectHover txtListado">
+            </div>
+          </td>
+          <td>
+            <div class="fila">
+              <input    [(ngModel)]="filtroPosicion"  (ngModelChange)="cargarRegistros()"  type="text" id="txtPosicion" class="selectHover txtListado">
+            </div>
+          </td>
+          <td>
+            <div class="fila">
+              <input type="text" id="txtKo" class="selectHover txtListado">
+            </div>
+          </td>
+        </tr>
+        <tr *ngFor="let item of LstRegistros">
           <td class="textNormal">{{ item.id }}</td>
-          <td  class="textNormal">{{ item.nombrePersonajeEmisor }}</td>
-          <td  class="textNormal">{{ item.nombrePersonajeReceptor }}</td>
+          <td class="textNormal">{{ item.nombrePersonajeEmisor }}</td>
+          <td class="textNormal">{{ item.nombrePersonajeReceptor }}</td>
           <td class="textNormal">{{ item.nombreMovimiento }}</td>
           <td class="textNormal">{{ item.rage }}%</td>
           <td class="textNormal">{{ item.nombreEscenario }}</td>
-          <td  class="textNormal">{{ item.porcentajeKO }}%</td>
+          <td class="textNormal">{{ item.nombrePosicion }}</td>
+          <td class="textNormal">{{ item.porcentajeKO }}%</td>
           <td class="textNormal">
-            <app-editar-registro 
-              [inputIdRegistro]="item.id"
-              [inputIdPjEmisor]="item.idPersonajeEmisor"
-              [inputIdPjReceptor]="item.idPersonajeReceptor"
-              [inputIdEscenario]="item.idEscenario"
-              [inputIdMovimiento]="item.idMovimiento"
-              [inputIdKO]="item.porcentajeKO"
-              [inputRage]="item.rage"
+            <app-editar-registro [inputIdRegistro]="item.id" [inputIdPjEmisor]="item.idPersonajeEmisor"
+              [inputIdPjReceptor]="item.idPersonajeReceptor" [inputIdEscenario]="item.idEscenario"
+              [inputIdMovimiento]="item.idMovimiento" [inputIdKO]="item.porcentajeKO" [inputRage]="item.rage"
               (actualizarLista)="cargarRegistros()">
               >
             </app-editar-registro>
           </td>
-          <td  class="textNormal">  
-          <app-eliminar-registro
-              [inputIdRegistro]="item.id"
-              (actualizarLista)="cargarRegistros()">
-          </app-eliminar-registro>
-            </td>
+          <td class="textNormal">
+            <app-eliminar-registro [inputIdRegistro]="item.id" (actualizarLista)="cargarRegistros()">
+            </app-eliminar-registro>
+          </td>
         </tr>
       </tbody>
     </table>
-    <app-agr-registro
-    (actualizarLista)="cargarRegistros()"
-    ></app-agr-registro>
+    <app-agr-registro (actualizarLista)="cargarRegistros()"></app-agr-registro>
 
   </div>
 </div>

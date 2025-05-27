@@ -1,9 +1,27 @@
 import { url_entorno } from '../../configs/url_entorno';
 export class registroService {
 
-  async getAllRegistros(): Promise<any> {
+  async getAllRegistros(
+    filtroEmisor:any,
+    filtroReceptor:any,
+    filtroRage:any,
+    filtroPosicion:any,
+    filtroStage:any,
+    filtroMov:any
+  ): Promise<any> {
     console.log("desde el service getAllRegistros");
-    const response =await fetch(url_entorno() + '/apiSmash/Registros');
+
+filtroMov=filtroMov==undefined?0:filtroMov;
+    console.log("filtroEmisor y filtroMov son: ",filtroEmisor,filtroMov);
+
+
+    const response =await fetch(url_entorno() + '/apiSmash/Registro?filtroMovimiento=' 
+    + filtroMov
+    +"&filtroEmisor=" + filtroEmisor
+    + "&filtroReceptor=" + filtroReceptor
+    + "&filtroRage=" + filtroRage
+    + "&filtroPosicion=" + filtroPosicion
+    + "&filtroStage=" + filtroStage);
     const body = await response.json();
     console.log("response body",body);
     return body;

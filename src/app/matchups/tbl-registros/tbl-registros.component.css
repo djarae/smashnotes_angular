@@ -1,4 +1,7 @@
 
+.txtListado {
+  width: 70px; /* o cualquier valor que necesites */
+}
 
 
   @media screen and (max-width: 430px) {
