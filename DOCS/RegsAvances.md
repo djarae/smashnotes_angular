@@ -10,12 +10,15 @@ NEXT STEPS:
 # JUE/8  => BACKEND FIXED ERROR DE STRING         5 MINS
 # SAB/17 => ??? 
 # LUN/26 => Se completo el back y fron pero con bugs
+# VIE/30 => Despliegue y correccion bug.MVP UP
 
-BUGS A ARREGLAR:
- No se filtra por rage (deberia)
+- Futuras mejoras:
+  Cronjob.org=> pin cada 14 mins a endpoint y a respaldo de db (cuentas separadas)
+  Btn Respaldo DB=> Apunta a bd postgre(guardar partidaxd)
+  OPC: Respaldo automatico mmm diario  
+
  
- Pendiete MVP:
-  *Desplegar nueva bd (los respaldos los hare manual ,la cosa es ya usarla)
+
 
 
 
