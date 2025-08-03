@@ -26,6 +26,8 @@ export class AgrRegistroComponent {
   selectedMovimiento: any = '';  // Variable para almacenar el valor seleccionado
 
   textboxRage: any =''
+  chkDiOptimo: boolean = false;
+  chkDiNinguno: boolean = false;
   porcentajeKo: any = '';  // Variable para almacenar el valor seleccionado
 
 
@@ -43,7 +45,9 @@ export class AgrRegistroComponent {
 
   async addNuevoPorcentajeKO() {
    console.log("Ingresamos a insertar ");
-   const response = await new registroService().insertarRegistro(this.selectedPersonajeEmisor,this.selectedPersonajeReceptor,this.selectedEscenario,this.selectedMovimiento,this.porcentajeKo,this.textboxRage);
+   let diFinal= false ;
+   if(this.chkDiOptimo){diFinal=true; }
+   const response = await new registroService().insertarRegistro(this.selectedPersonajeEmisor,this.selectedPersonajeReceptor,this.selectedEscenario,this.selectedMovimiento,this.porcentajeKo,this.textboxRage,diFinal);
    
    console.log("response body",response);
    console.log("antes del emit")
@@ -59,6 +63,18 @@ export class AgrRegistroComponent {
  });
   
   
+  }
+
+  cambiarDI(di:boolean){
+    if (di){
+      this.chkDiOptimo=true;
+      this.chkDiNinguno=false;
+    }else{
+      this.chkDiOptimo=false;
+      this.chkDiNinguno=true;      
+    }  
+
+
   }
 
 

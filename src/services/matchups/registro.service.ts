@@ -36,7 +36,7 @@ filtroMov=filtroMov==undefined?0:filtroMov;
     return body;
   }
 
-  async insertarRegistro(emisor:any,receptor:any,escenario:any,movimiento:any,KO:any,rage:any): Promise<any> {
+  async insertarRegistro(emisor:any,receptor:any,escenario:any,movimiento:any,KO:any,rage:any,diFinal:any): Promise<any> {
     console.log("dsede srevice insertar receptor ,escenario y porcentaje son: ",emisor, receptor,escenario,movimiento,KO);
     //Creamos el json para enviar data
     const obj = {
@@ -46,7 +46,8 @@ filtroMov=filtroMov==undefined?0:filtroMov;
       "idMovimiento": movimiento,
       "idEscenario": escenario,
       "porcentajeKO": KO,
-      "rage" :rage 
+      "rage" :rage ,
+      "di":diFinal
     };
 
     //Enviamos data
