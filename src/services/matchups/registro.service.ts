@@ -15,6 +15,15 @@ filtroMov=filtroMov==undefined?0:filtroMov;
     console.log("filtroEmisor y filtroMov son: ",filtroEmisor,filtroMov);
 
 
+    const urlSample = (url_entorno() + '/apiSmash/Registro?filtroMovimiento=' 
+    + filtroMov
+    +"&filtroEmisor=" + filtroEmisor
+    + "&filtroReceptor=" + filtroReceptor
+    + "&filtroRage=" + filtroRage
+    + "&filtroPosicion=" + filtroPosicion
+    + "&filtroStage=" + filtroStage)
+    console.log("url sample es ",urlSample);
+
     const response =await fetch(url_entorno() + '/apiSmash/Registro?filtroMovimiento=' 
     + filtroMov
     +"&filtroEmisor=" + filtroEmisor

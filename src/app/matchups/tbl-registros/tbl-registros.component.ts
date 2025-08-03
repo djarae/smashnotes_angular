@@ -17,6 +17,8 @@ export class TblRegistrosComponent  implements OnInit {
   filtroRage:any;
   filtroPosicion:any;
   filtroStage:any;
+  filtroConDI:any;
+  filtroSinDI:any;
 
   async ngOnInit() {
     await this.cargarRegistros()
@@ -38,6 +40,7 @@ export class TblRegistrosComponent  implements OnInit {
       this.filtroStage,
       this.filtroMov
     );
-    this.LstRegistros = await response; this.LstRegistros = [...this.LstRegistros]; 
+    this.LstRegistros = await response; this.LstRegistros = [...this.LstRegistros];
+     console.log(this.LstRegistros,"LstRegistros");
   }
 }

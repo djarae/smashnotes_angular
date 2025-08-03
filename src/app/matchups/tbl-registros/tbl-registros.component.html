@@ -12,6 +12,7 @@
           <th scope="col" class="textEncabezado">Rage</th>
           <th scope="col" class="textEncabezado">Escenario</th>
           <th scope="col" class="textEncabezado">Posicion</th>
+          <th scope="col" class="textEncabezado">DI:Optimo/Ninguno</th>
           <th scope="col" class="textEncabezado">KO%</th>
           <th scope="col" class="textEncabezado"></th>
           <th scope="col" class="textEncabezado"></th>
@@ -22,33 +23,53 @@
           <td class="textNormal"></td>
           <td>
             <div class="fila">
-              <input [(ngModel)]="filtroEmisor"  (ngModelChange)="cargarRegistros()"type="text" id="txtEmisor"  class="selectHover txtListado">
+              <input [(ngModel)]="filtroEmisor" (ngModelChange)="cargarRegistros()" type="text" id="txtEmisor"
+                class="selectHover txtListado">
             </div>
           </td>
           <td>
             <div class="fila">
-              <input  [(ngModel)]="filtroReceptor"   (ngModelChange)="cargarRegistros()" type="text" id="txtReceptor" class="selectHover txtListado">
+              <input [(ngModel)]="filtroReceptor" (ngModelChange)="cargarRegistros()" type="text" id="txtReceptor"
+                class="selectHover txtListado">
             </div>
           </td>
           <td>
             <div class="fila">
-              <input [(ngModel)]="filtroMov"  (ngModelChange)="cargarRegistros()"  type="text" id="txtMov" class="selectHover txtListado">
+              <input [(ngModel)]="filtroMov" (ngModelChange)="cargarRegistros()" type="text" id="txtMov"
+                class="selectHover txtListado">
             </div>
           </td>
           <td>
             <div class="fila">
-              <input   [(ngModel)]="filtroRage"  (ngModelChange)="cargarRegistros()" type="text" id="txtRage" class="selectHover txtListado">
+              <input [(ngModel)]="filtroRage" (ngModelChange)="cargarRegistros()" type="text" id="txtRage"
+                class="selectHover txtListado">
             </div>
           </td>
           <td>
             <div class="fila">
-              <input    [(ngModel)]="filtroStage"   (ngModelChange)="cargarRegistros()" type="text" id="txtStage" class="selectHover txtListado">
+              <input [(ngModel)]="filtroStage" (ngModelChange)="cargarRegistros()" type="text" id="txtStage"
+                class="selectHover txtListado">
             </div>
           </td>
           <td>
             <div class="fila">
-              <input    [(ngModel)]="filtroPosicion"  (ngModelChange)="cargarRegistros()"  type="text" id="txtPosicion" class="selectHover txtListado">
+              <input [(ngModel)]="filtroPosicion" (ngModelChange)="cargarRegistros()" type="text" id="txtPosicion"
+                class="selectHover txtListado">
             </div>
+          </td>
+          <td>
+            <div class="fila" style="display: flex; gap: 20px; align-items: center;">
+              <label>
+                <input type="checkbox" [(ngModel)]="filtroConDI" (change)="cargarRegistros()" />
+                Optimo
+              </label>
+              <label>
+                <input type="checkbox" [(ngModel)]="filtroSinDI" (change)="cargarRegistros()" />
+                Ninguno
+              </label>
+            </div>
+
+
           </td>
           <td>
             <div class="fila">
@@ -64,6 +85,7 @@
           <td class="textNormal">{{ item.rage }}%</td>
           <td class="textNormal">{{ item.nombreEscenario }}</td>
           <td class="textNormal">{{ item.nombrePosicion }}</td>
+          <td class="textNormal">{{ item.di }}</td>
           <td class="textNormal">{{ item.porcentajeKO }}%</td>
           <td class="textNormal">
             <app-editar-registro [inputIdRegistro]="item.id" [inputIdPjEmisor]="item.idPersonajeEmisor"
