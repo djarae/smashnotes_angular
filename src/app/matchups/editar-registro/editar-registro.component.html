@@ -56,6 +56,20 @@
         <!-- <p>Selected: {{ selectedPersonaje }}</p> -->
     </div>
 
+      <div class="fila">
+        <label>DI :</label>
+         <div class="fila" style="display: flex; gap: 20px; align-items: center;">
+              <label>
+                <input type="checkbox"  [(ngModel)]="chkDiOptimo" (ngModelChange)="cambiarDI(true)" />
+                Optimo
+              </label>
+              <label>
+                <input type="checkbox" [(ngModel)]="chkDiNinguno" (ngModelChange)="cambiarDI(false)"/>
+                Ninguno
+              </label>
+          </div>
+    </div>
+
     <div class="fila">
         <label>Porcentaje :</label>
         <input [(ngModel)]="porcentajeKo" type="text" id="txtPorcentajeKo" class="selectHover">

@@ -66,11 +66,9 @@ filtroMov=filtroMov==undefined?0:filtroMov;
   }
 
 
-  async updateRegistro(id:any,emisor:any, receptor:any,escenario:any,movimiento:any,KO:any,rage:any): Promise<any> {
-    console.log("desde el service emisor,receptor ,escenario ,movimiento , porcentaje,rage son: ",emisor,receptor,escenario,movimiento,KO,rage);
-    console.log("aaatipos de porcentaje ko y rage son: ",typeof KO,typeof rage);
+  async updateRegistro(id:any,emisor:any, receptor:any,escenario:any,movimiento:any,KO:any,rage:any,diFinal:any): Promise<any> {
    const rageInt=parseInt(rage);
-   console.log("aaatipos de porcentaje ko y rageINT son: ",typeof KO,typeof rageInt);
+   console.log("el valor del DI es  ;"+ diFinal);
     const obj = {
       "id": id,
       "idPersonajeEmisor": emisor,
@@ -79,7 +77,8 @@ filtroMov=filtroMov==undefined?0:filtroMov;
        "idEscenario": escenario,
       "idPosicion": 1,
       "porcentajeKO": KO,
-      "rage" : 300
+      "rage" : 300,
+      "di":diFinal
     }
     const response = await
     fetch(url_entorno() + '/apiSmash/Registro', {

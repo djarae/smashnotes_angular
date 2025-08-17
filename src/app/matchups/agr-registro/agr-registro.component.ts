@@ -73,8 +73,6 @@ export class AgrRegistroComponent {
       this.chkDiOptimo=false;
       this.chkDiNinguno=true;      
     }  
-
-
   }
 
 

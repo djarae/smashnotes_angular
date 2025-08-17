@@ -25,7 +25,9 @@ export class EditarRegistroComponent {
   selectedPersonajeEmisor : any =0;
   selectedMovimiento:any=0;
   selectedEscenario: any = 0;  // Variable para almacenar el valor seleccionado
-  textboxRage: any =0
+  textboxRage: any =0;
+  chkDiOptimo: boolean = false;
+  chkDiNinguno: boolean = false;
   porcentajeKo: any = 0;  // Variable para almacenar el valor seleccionado
 
   //Inputs desde el listado
@@ -54,7 +56,9 @@ export class EditarRegistroComponent {
 
 
   async  updatePorcentajeKO() {
-    console.log("Receptor ,escenario y porcentaje son: ",this.inputIdRegistro,this.selectedPersonajeEmisor,this.selectedPersonajeReceptor,this.selectedMovimiento,this.selectedEscenario,this.porcentajeKo,this.textboxRage);
+    let diFinal= false ;
+    if(this.chkDiOptimo){diFinal=true;}
+    console.log("Receptor ,escenario y porcentaje son: ",this.inputIdRegistro,this.selectedPersonajeEmisor,this.selectedPersonajeReceptor,this.selectedMovimiento,this.selectedEscenario,this.porcentajeKo,this.textboxRage,diFinal);
     const response = await new registroService().updateRegistro(
       this.inputIdRegistro,
       this.selectedPersonajeEmisor,
@@ -62,10 +66,9 @@ export class EditarRegistroComponent {
       this.selectedEscenario,
       this.selectedMovimiento,
       this.porcentajeKo,
-      this.textboxRage
+      this.textboxRage,
+      this.chkDiOptimo ? true : false // Convertimos a booleano
     );
-    
-  
     this.actualizarLista.emit(); // Luego, emite el evento para actualizar la tabla
   // Muestra un mensaje por 2 segundos
   this.snackBar.open(response, 'Cerrar', {
@@ -73,6 +76,16 @@ export class EditarRegistroComponent {
     verticalPosition: 'top', // Posición en pantalla
     horizontalPosition: 'center'
   });
+  }
+
+   cambiarDI(di:boolean){
+    if (di){
+      this.chkDiOptimo=true;
+      this.chkDiNinguno=false;
+    }else{
+      this.chkDiOptimo=false;
+      this.chkDiNinguno=true;      
+    }  
   }
 
 }
