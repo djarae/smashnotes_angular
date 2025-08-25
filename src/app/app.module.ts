@@ -19,6 +19,7 @@ import {TblRegistrosComponent} from './matchups/tbl-registros/tbl-registros.comp
 import {AgrRegistroComponent} from  './matchups/agr-registro/agr-registro.component';
 import { EditarRegistroComponent } from './matchups/editar-registro/editar-registro.component';
 import { EliminarRegistroComponent } from './matchups/eliminar-registro/eliminar-registro.component'
+import { BtnBackupComponent } from './btn-backup/btn-backup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -30,7 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TblRegistrosComponent,
     AgrRegistroComponent,
     EditarRegistroComponent,
-    EliminarRegistroComponent
+    EliminarRegistroComponent,
+    BtnBackupComponent
   ],
   imports: [
     BrowserModule,
