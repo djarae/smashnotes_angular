@@ -1,108 +1,78 @@
 <div class="container justify-content-center">
-  <div class="container col-6 rounded bg-transparent  text-dark ">
+  <div class="container col-6 rounded bg-transparent text-dark">
 
     <table class="table mi-tabla table-striped table-bordered">
 
+      <colgroup>
+        <col style="width:30px;"> <!-- ID -->
+        <col> <!-- Emisor -->
+        <col> <!-- Receptor -->
+        <col> <!-- Mov -->
+        <col style="width:50px;"> <!-- Rage -->
+        <col> <!-- Escenario -->
+        <col> <!-- Posicion -->
+        <col> <!-- DI -->
+        <col style="width:20px;"> <!-- KO -->
+        <col> <!-- Editar -->
+        <col> <!-- Eliminar -->
+      </colgroup>
+
       <thead>
         <tr>
-          <th scope="col" class="textEncabezado">#</th>
+          <th scope="col" class="col-id">#</th>
           <th scope="col" class="textEncabezado">Emisor</th>
           <th scope="col" class="textEncabezado">Receptor</th>
           <th scope="col" class="textEncabezado">Mov</th>
-          <th scope="col" class="textEncabezado">Rage</th>
+          <th scope="col" class="textEncabezado col-rage">Rage</th>
           <th scope="col" class="textEncabezado">Escenario</th>
           <th scope="col" class="textEncabezado">Posicion</th>
-          <th scope="col" class="textEncabezado">DI:Optimo/Ninguno</th>
-          <th scope="col" class="textEncabezado">KO%</th>
+          <th scope="col" class="textEncabezado">DI</th>
+          <th scope="col" class="textEncabezado col-ko">KO%</th>
           <th scope="col" class="textEncabezado"></th>
           <th scope="col" class="textEncabezado"></th>
         </tr>
       </thead>
+
       <tbody>
         <tr>
-          <td class="textNormal"></td>
-          <td>
-            <div class="fila">
-              <input [(ngModel)]="filtroEmisor" (ngModelChange)="cargarRegistros()" type="text" id="txtEmisor"
-                class="selectHover txtListado">
-            </div>
-          </td>
-          <td>
-            <div class="fila">
-              <input [(ngModel)]="filtroReceptor" (ngModelChange)="cargarRegistros()" type="text" id="txtReceptor"
-                class="selectHover txtListado">
-            </div>
-          </td>
-          <td>
-            <div class="fila">
-              <input [(ngModel)]="filtroMov" (ngModelChange)="cargarRegistros()" type="text" id="txtMov"
-                class="selectHover txtListado">
-            </div>
-          </td>
-          <td>
-            <div class="fila">
-              <input [(ngModel)]="filtroRage" (ngModelChange)="cargarRegistros()" type="text" id="txtRage"
-                class="selectHover txtListado">
-            </div>
-          </td>
-          <td>
-            <div class="fila">
-              <input [(ngModel)]="filtroStage" (ngModelChange)="cargarRegistros()" type="text" id="txtStage"
-                class="selectHover txtListado">
-            </div>
-          </td>
-          <td>
-            <div class="fila">
-              <input [(ngModel)]="filtroPosicion" (ngModelChange)="cargarRegistros()" type="text" id="txtPosicion"
-                class="selectHover txtListado">
-            </div>
-          </td>
-          <td>
-            <div class="fila" style="display: flex; gap: 20px; align-items: center;">
-              <label>
-                <input type="checkbox" [(ngModel)]="filtroConDI" (change)="cargarRegistros()" />
-                Optimo
-              </label>
-              <label>
-                <input type="checkbox" [(ngModel)]="filtroSinDI" (change)="cargarRegistros()" />
-                Ninguno
-              </label>
-            </div>
-
-
-          </td>
-          <td>
-            <div class="fila">
-              <input type="text" id="txtKo" class="selectHover txtListado">
-            </div>
-          </td>
+          <td class="col-id"></td>
+          <td><input [(ngModel)]="filtroEmisor" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
+          <td><input [(ngModel)]="filtroReceptor" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
+          <td><input [(ngModel)]="filtroMov" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
+          <td class="col-rage"><input [(ngModel)]="filtroRage" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
+          <td><input [(ngModel)]="filtroStage" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
+          <td><input [(ngModel)]="filtroPosicion" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
+          <td></td>
+          <td class="col-ko"><input type="text" class="txtListado"></td>
+          <td></td>
+          <td></td>
         </tr>
+
         <tr *ngFor="let item of LstRegistros">
-          <td class="textNormal">{{ item.id }}</td>
-          <td class="textNormal">{{ item.nombrePersonajeEmisor }}</td>
-          <td class="textNormal">{{ item.nombrePersonajeReceptor }}</td>
-          <td class="textNormal">{{ item.nombreMovimiento }}</td>
-          <td class="textNormal">{{ item.rage }}%</td>
-          <td class="textNormal">{{ item.nombreEscenario }}</td>
-          <td class="textNormal">{{ item.nombrePosicion }}</td>
-          <td class="textNormal">{{ item.di }}</td>
-          <td class="textNormal">{{ item.porcentajeKO }}%</td>
-          <td class="textNormal">
+          <td class="col-id">{{ item.id }}</td>
+          <td>{{ item.nombrePersonajeEmisor }}</td>
+          <td>{{ item.nombrePersonajeReceptor }}</td>
+          <td>{{ item.nombreMovimiento }}</td>
+          <td class="col-rage">{{ item.rage }}%</td>
+          <td>{{ item.nombreEscenario }}</td>
+          <td>{{ item.nombrePosicion }}</td>
+          <td>{{ item.di }}</td>
+          <td class="col-ko">{{ item.porcentajeKO }}%</td>
+          <td>
             <app-editar-registro [inputIdRegistro]="item.id" [inputIdPjEmisor]="item.idPersonajeEmisor"
               [inputIdPjReceptor]="item.idPersonajeReceptor" [inputIdEscenario]="item.idEscenario"
               [inputIdMovimiento]="item.idMovimiento" [inputIdKO]="item.porcentajeKO" [inputRage]="item.rage"
               (actualizarLista)="cargarRegistros()">
-              >
             </app-editar-registro>
           </td>
-          <td class="textNormal">
+          <td>
             <app-eliminar-registro [inputIdRegistro]="item.id" (actualizarLista)="cargarRegistros()">
             </app-eliminar-registro>
           </td>
         </tr>
       </tbody>
     </table>
-    <app-agr-registro (actualizarLista)="cargarRegistros()"></app-agr-registro>
 
+    <app-agr-registro (actualizarLista)="cargarRegistros()"></app-agr-registro>
   </div>
 </div>
