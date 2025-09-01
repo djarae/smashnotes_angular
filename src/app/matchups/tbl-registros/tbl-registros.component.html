@@ -28,7 +28,7 @@
           <th scope="col" class="textEncabezado">Posicion</th>
           <th scope="col" class="textEncabezado">DI</th>
           <th scope="col" class="textEncabezado col-ko">KO%</th>
-          <th scope="col" class="textEncabezado"></th>
+          <th scope="col" class="textEncabezado">Acciones</th>
           <th scope="col" class="textEncabezado"></th>
         </tr>
       </thead>
@@ -59,16 +59,18 @@
           <td>{{ item.di }}</td>
           <td class="col-ko">{{ item.porcentajeKO }}%</td>
           <td>
-            <app-editar-registro [inputIdRegistro]="item.id" [inputIdPjEmisor]="item.idPersonajeEmisor"
-              [inputIdPjReceptor]="item.idPersonajeReceptor" [inputIdEscenario]="item.idEscenario"
-              [inputIdMovimiento]="item.idMovimiento" [inputIdKO]="item.porcentajeKO" [inputRage]="item.rage"
-              (actualizarLista)="cargarRegistros()">
-            </app-editar-registro>
+            <div class="action-buttons">
+              <app-editar-registro [inputIdRegistro]="item.id" [inputIdPjEmisor]="item.idPersonajeEmisor"
+                [inputIdPjReceptor]="item.idPersonajeReceptor" [inputIdEscenario]="item.idEscenario"
+                [inputIdMovimiento]="item.idMovimiento" [inputIdKO]="item.porcentajeKO" [inputRage]="item.rage"
+                (actualizarLista)="cargarRegistros()">
+              </app-editar-registro>
+
+              <app-eliminar-registro [inputIdRegistro]="item.id" (actualizarLista)="cargarRegistros()">
+              </app-eliminar-registro>
+            </div>
           </td>
-          <td>
-            <app-eliminar-registro [inputIdRegistro]="item.id" (actualizarLista)="cargarRegistros()">
-            </app-eliminar-registro>
-          </td>
+          <td></td>
         </tr>
       </tbody>
     </table>
