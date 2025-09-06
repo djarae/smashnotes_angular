@@ -112,13 +112,12 @@ left: -1px; /* Mueve la tabla 50px a la izquierda */
 
 @media screen and (max-width: 800px) {
   .table {
-    color: blue; /* cambia el color de letra a rojo */
      padding: 1px !important; /* forzar que se aplique */
   }
   
   /* Opcional: si quieres que solo los textos dentro de celdas sean rojos */
   .table th, .table td {
-    color: blue;
+    color: green;
     padding: 1px !important; /* forzar que se aplique */
   }
 .txtListado {
