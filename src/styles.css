@@ -128,7 +128,7 @@ left: -1px; /* Mueve la tabla 50px a la izquierda */
   .table {
     padding: 10px !important; /* forzar padding mínimo */
     position: relative;      /* necesario para mover la tabla */
-    left: 100px;             /* mover 100px a la derecha */
+    left:75px;             /* mover 100px a la derecha */
   }
   
   .table th, .table td {
