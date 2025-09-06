@@ -30,7 +30,7 @@ body {
 }
 
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 830px) {
 .content {
   justify-content: left;
 margin-top: 40px;
@@ -124,7 +124,7 @@ left: -1px; /* Mueve la tabla 50px a la izquierda */
 
 
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 800px) {
   .table {
     padding: 10px !important; /* forzar padding mínimo */
     position: relative;      /* necesario para mover la tabla */
