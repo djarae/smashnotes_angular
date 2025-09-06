@@ -112,18 +112,6 @@ left: -1px; /* Mueve la tabla 50px a la izquierda */
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 @media screen and (max-width: 800px) {
   .table {
     padding: 10px !important; /* forzar padding mínimo */
