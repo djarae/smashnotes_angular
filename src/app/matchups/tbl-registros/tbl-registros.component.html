@@ -1,6 +1,6 @@
 <div class="container justify-content-center">
   <div class="container col-6 rounded bg-transparent text-dark">
-
+   <!-- TABLA DATA -->
     <table class="table mi-tabla table-striped table-bordered">
 
       <colgroup>
@@ -20,8 +20,8 @@
       <thead>
         <tr>
           <th scope="col" class="col-id">#</th>
-          <th scope="col" class="textEncabezado">Emisor</th>
-          <th scope="col" class="textEncabezado">Receptor</th>
+          <th scope="col" class="textEncabezado">Emi</th>
+          <th scope="col" class="textEncabezado">Rec</th>
           <th scope="col" class="textEncabezado">Mov</th>
           <th scope="col" class="textEncabezado col-rage">Rage</th>
           <th scope="col" class="textEncabezado">Escenario</th>
@@ -38,7 +38,7 @@
           <td class="col-id"></td>
           <td><input [(ngModel)]="filtroEmisor" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
           <td><input [(ngModel)]="filtroReceptor" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
-          <td><input [(ngModel)]="filtroMov" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
+          <td  ><input [(ngModel)]="filtroMov" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
           <td class="col-rage"><input [(ngModel)]="filtroRage" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
           <td><input [(ngModel)]="filtroStage" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
           <td><input [(ngModel)]="filtroPosicion" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
@@ -50,8 +50,8 @@
 
         <tr *ngFor="let item of LstRegistros">
           <td class="col-id">{{ item.id }}</td>
-          <td>{{ item.nombrePersonajeEmisor }}</td>
-          <td>{{ item.nombrePersonajeReceptor }}</td>
+          <td>{{ item.abreviaturaPersonajeEmisor }}</td>
+          <td>{{ item.abreviaturaPersonajeReceptor }}</td>
           <td>{{ item.nombreMovimiento }}</td>
           <td class="col-rage">{{ item.rage }}%</td>
           <td>{{ item.nombreEscenario }}</td>
@@ -74,7 +74,20 @@
         </tr>
       </tbody>
     </table>
+   <!-- CHECKBOXS DI -->
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span><strong>D.I:</strong></span>
+      <label>
+      <input type="checkbox" name="di" value="si">
+           SI
+      </label>
 
+      <label>
+      <input type="checkbox" name="di" value="no">
+             NO
+      </label>
+    </div>
+    <!-- BTN AGREGAR -->
     <app-agr-registro (actualizarLista)="cargarRegistros()"></app-agr-registro>
   </div>
 </div>

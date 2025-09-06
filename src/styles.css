@@ -9,6 +9,43 @@ body {
   text-align: center;
 }
 
+.txtListado {
+  width: 70px; /* o cualquier valor que necesites */
+}
+
+
+
+.content {
+  flex-direction: column;
+  align-items: center;
+  /* background: linear-gradient(
+    rgba(17, 0, 67, 0.8) 0%, 
+    rgba(43, 12, 94, 0.7) 100%
+  ); */
+  width: 100%;
+  min-height: 100vh; /* Que ocupe toda la pantalla */
+  display: flex;
+  justify-content: center;
+
+}
+
+
+@media screen and (max-width: 430px) {
+.content {
+  justify-content: left;
+margin-top: 40px;
+margin-left: 0;
+position: relative;
+left: -1px; /* Mueve la tabla 50px a la izquierda */
+
+}
+}
+
+
+ 
+
+
+
 /* Table Styles */
 .table {
   width: 100%;
@@ -68,24 +105,42 @@ body {
 }
 .boton:hover { background-color: rgba(255, 193, 7, 0.3); }
 
-@media screen and (max-width: 430px) {
-  .table th, .table td { padding: 6px; text-align: left; }
-
-  /* Reducir 50% el ancho de columnas específicas */
-  .table th:nth-child(2), .table td:nth-child(2), /* Emisor */
-  .table th:nth-child(3), .table td:nth-child(3), /* Receptor */
-  .table th:nth-child(4), .table td:nth-child(4), /* Mov */
-  .table th:nth-child(6), .table td:nth-child(6)  /* Escenario */
-  {
-    width: 50% !important;
-  }
-
-  /* Reducir también el ancho de los inputs dentro */
-  .table td:nth-child(2) input,
-  .table td:nth-child(3) input,
-  .table td:nth-child(4) input,
-  .table td:nth-child(6) input
-  {
-    width: 90%;
-  }
+.col-base{
+  width: 100%;;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 400px) {
+  .table {
+    padding: 10px !important; /* forzar padding mínimo */
+    position: relative;      /* necesario para mover la tabla */
+    left: 100px;             /* mover 100px a la derecha */
+  }
+  
+  .table th, .table td {
+    padding: 10px !important;
+  }
+
+  .txtListado {
+    width: 100px; 
+  }
+
+  
+ 
+
+}
+

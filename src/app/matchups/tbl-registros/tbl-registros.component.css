@@ -1,20 +1,136 @@
+/* Global Styles */
+html, body { height: 100%; }
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  background-color: black; 
+  color: #ffffff; 
+  padding: 20px; 
+  text-align: center;
+}
 
 .txtListado {
   width: 70px; /* o cualquier valor que necesites */
 }
 
 
-  @media screen and (max-width: 430px) {
-    .table th  {
-        font-size: 16px;
-        padding: 3px;
-      }
-      .table td  {
-        font-size: 16px;
-        padding: 3px;
 
-      }
+.content {
+  flex-direction: column;
+  align-items: center;
+  /* background: linear-gradient(
+    rgba(17, 0, 67, 0.8) 0%, 
+    rgba(43, 12, 94, 0.7) 100%
+  ); */
+  width: 100%;
+  min-height: 100vh; /* Que ocupe toda la pantalla */
+  display: flex;
+  justify-content: center;
 
-  
+}
 
+
+@media screen and (max-width: 430px) {
+.content {
+  justify-content: left;
+margin-top: 40px;
+margin-left: 0;
+position: relative;
+left: -1px; /* Mueve la tabla 50px a la izquierda */
+
+}
+}
+
+
+ 
+
+
+
+/* Table Styles */
+.table {
+  width: 100%;
+  margin: auto;
+  border-collapse: collapse;
+  background-color: #1e1e1e;
+  table-layout: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(255, 193, 7, 0.3);
+}
+.table thead { background-color: black; color: white; }
+.table th, .table td { padding: 10px; text-align: left; }
+.table th { font-size: 16px; }
+
+/* Inputs Rage y KO */
+.table td.col-rage input,
+.table th.col-rage input,
+.table td.col-ko input,
+.table th.col-ko input {
+  width: 100%;
+  padding: 2px 4px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 0.85em;
+}
+
+/* Columnas angostas */
+.table th.col-id, .table td.col-id { width: 30px !important; max-width: 30px; padding: 0 4px; text-align: center; white-space: nowrap; }
+.col-id, .col-rage, .col-ko { text-align: center; padding: 0 !important; white-space: nowrap; }
+.table th.col-ko, .table td.col-ko { width: 40px !important; max-width: 40px; padding: 0 4px; text-align: center; white-space: nowrap; }
+
+/* Headers */
+.textEncabezado { font-weight: bold; color: #ffb300; }
+
+/* Table Body */
+.table tbody tr { border-bottom: 1px solid #444; }
+.table tbody tr:nth-child(even) { background-color: rgba(255, 193, 7, 0.1); }
+.table tbody tr:hover { background-color: rgba(255, 193, 7, 0.3); transition: background 0.3s; }
+
+/* Botones pegados */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5px; /* Ajusta la distancia entre los botones */
+}
+
+/* Botones Estilo */
+.boton {
+  background-color: #1e1e1e;
+  color: #ffb300;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+  box-shadow: 0px 4px 10px rgba(255, 193, 7, 0.3);
+}
+.boton:hover { background-color: rgba(255, 193, 7, 0.3); }
+
+.col-base{
+  width: 100%;;
+}
+
+
+@media screen and (max-width: 400px) {
+  .table {
+    color: blue; /* cambia el color de letra a rojo */
+     padding: 1px !important; /* forzar que se aplique */
   }
+  
+  /* Opcional: si quieres que solo los textos dentro de celdas sean rojos */
+  .table th, .table td {
+    color: red;
+    padding: 1px !important; /* forzar que se aplique */
+  }
+.txtListado {
+  width: 30px; /* o cualquier valor que necesites */
+}
+
+
+.col-base{
+  width: 100%;;
+}
+
+ 
+
+}
+
