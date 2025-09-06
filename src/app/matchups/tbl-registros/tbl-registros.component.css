@@ -118,7 +118,7 @@ left: -1px; /* Mueve la tabla 50px a la izquierda */
   
   /* Opcional: si quieres que solo los textos dentro de celdas sean rojos */
   .table th, .table td {
-    color: red;
+    color: blue;
     padding: 1px !important; /* forzar que se aplique */
   }
 .txtListado {
