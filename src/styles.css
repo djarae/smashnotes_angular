@@ -75,7 +75,8 @@ left: -1px; /* Mueve la tabla 50px a la izquierda */
 
 /* Columnas angostas */
 .table th.col-id, .table td.col-id { width: 30px !important; max-width: 30px; padding: 0 4px; text-align: center; white-space: nowrap; }
-.col-id, .col-rage, .col-ko { text-align: center; padding: 0 !important; white-space: nowrap; }
+.col-rage, .col-ko { text-align: center; padding: 0 !important; white-space: nowrap; }
+.col-id { text-align: right; padding: 0 !important; white-space: nowrap; }
 .table th.col-ko, .table td.col-ko { width: 40px !important; max-width: 40px; padding: 0 4px; text-align: center; white-space: nowrap; }
 
 /* Headers */
@@ -116,7 +117,7 @@ left: -1px; /* Mueve la tabla 50px a la izquierda */
   .table {
     padding: 10px !important; /* forzar padding mínimo */
     position: relative;      /* necesario para mover la tabla */
-    left:75px;             /* mover 100px a la derecha */
+    left:36px;             /* mover 100px a la derecha */
   }
   
   .table th, .table td {
