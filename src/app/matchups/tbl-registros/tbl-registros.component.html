@@ -19,7 +19,6 @@
 
       <thead>
         <tr>
-          <th scope="col" class="col-id">#</th>
           <th scope="col" class="textEncabezado">Emi</th>
           <th scope="col" class="textEncabezado">Rec</th>
           <th scope="col" class="textEncabezado">Mov</th>
@@ -30,12 +29,14 @@
           <th scope="col" class="textEncabezado col-ko">KO%</th>
           <th scope="col" class="textEncabezado">Acciones</th>
           <th scope="col" class="textEncabezado"></th>
+          <th scope="col" class="col-id">#</th>
+
         </tr>
       </thead>
 
       <tbody>
         <tr>
-          <td class="col-id"></td>
+          
           <td><input [(ngModel)]="filtroEmisor" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
           <td><input [(ngModel)]="filtroReceptor" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
           <td  ><input [(ngModel)]="filtroMov" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
@@ -46,10 +47,10 @@
           <td class="col-ko"><input type="text" class="txtListado"></td>
           <td></td>
           <td></td>
+          <td class="col-id"></td>
         </tr>
 
         <tr *ngFor="let item of LstRegistros">
-          <td class="col-id">{{ item.id }}</td>
           <td>{{ item.abreviaturaPersonajeEmisor }}</td>
           <td>{{ item.abreviaturaPersonajeReceptor }}</td>
           <td>{{ item.abreviaturaMovimiento }}</td>
@@ -70,6 +71,8 @@
               </app-eliminar-registro>
             </div>
           </td>
+          <td class="col-id">{{ item.id }}</td>
+
           <td></td>
         </tr>
       </tbody>
