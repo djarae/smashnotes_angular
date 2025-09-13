@@ -1,5 +1,13 @@
+# 12-9-25
+Nota personal: Cambios a futuro. En un futuro debo aplicar el patron "MVVM" usado en angular que esta escrito en el doc
+"PatronMasUsadoEnAngular" de este proyecto! 
+Nota 2: Ademas a futuro debo tambien aplicar arquitectura de capas para el api.
+ Capa de presentacion: Dtos y Controllers. 
+ Capa de negocio: Services y Handlers(Mini unidades de "services" en caso de que necsite dividir) 
+ Capa de datos: Daos, Repositoris,Models
 
 
+============================================================================================================================================
 # La carpeta "Documentation
 "
 Contiene un compilado de datos importantes que no debo olvidar y sirve para entender cosa clave
