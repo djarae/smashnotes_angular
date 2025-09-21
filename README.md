@@ -1,3 +1,13 @@
+# 20-9-25  23:50 hh
+¡Ping recibido! ✅
+
+INSERT: JdbcTemplate con SQL directo.
+
+UPDATE / DELETE: JPQL (Spring Data / @Query).
+
+Queda marcado y listo para implementar más adelante.
+
+============================================================================================================================================
 # 12-9-25
 Nota personal: Cambios a futuro. En un futuro debo aplicar el patron "MVVM" usado en angular que esta escrito en el doc
 "PatronMasUsadoEnAngular" de este proyecto! 

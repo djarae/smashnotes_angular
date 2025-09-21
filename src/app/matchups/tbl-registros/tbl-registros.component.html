@@ -51,8 +51,8 @@
         </tr>
 
         <tr *ngFor="let item of LstRegistros">
-          <td>{{ item.abreviaturaPersonajeEmisor }}</td>
-          <td>{{ item.abreviaturaPersonajeReceptor }}</td>
+          <td>{{ item.abreviaturaEmisor }}</td>
+          <td>{{ item.abreviaturaReceptor }}</td>
           <td>{{ item.abreviaturaMovimiento }}</td>
           <td class="col-rage">{{ item.rage }}%</td>
           <td>{{ item.abreviaturaEscenario }}</td>
@@ -93,4 +93,5 @@
     <!-- BTN AGREGAR -->
     <app-agr-registro (actualizarLista)="cargarRegistros()"></app-agr-registro>
   </div>
+
 </div>
