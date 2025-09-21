@@ -80,7 +80,7 @@ async getAllRegistros(
        "idEscenario": escenario,
       "idPosicion": 1,
       "porcentajeKO": KO,
-      "rage" : 300,
+      "rage" : rageInt,
       "di":diFinal
     }
     const response = await
