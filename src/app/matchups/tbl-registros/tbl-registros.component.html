@@ -53,7 +53,9 @@
         <tr *ngFor="let item of LstRegistros">
           <td>{{ item.abreviaturaEmisor }}</td>
           <td>{{ item.abreviaturaReceptor }}</td>
-          <td>{{ item.abreviaturaMovimiento }}</td>
+        <td class="col-movimiento">
+  {{ item.idMovimiento > 999 ? item.nombreMovimiento : item.abreviaturaMovimiento }}
+</td>
           <td class="col-rage">{{ item.rage }}%</td>
           <td>{{ item.abreviaturaEscenario }}</td>
           <td>{{ item.nombrePosicion }}</td>

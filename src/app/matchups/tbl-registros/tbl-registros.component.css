@@ -1,4 +1,13 @@
 /* Global Styles */
+.col-movimiento {
+  width: 65px;       /* ancho fijo, ajusta según necesites */
+  word-wrap: break-word; /* permite que las palabras largas se rompan */
+  white-space: normal;   /* permite saltos de línea */
+  text-align: center;
+display: block
+}
+
+
 html, body { height: 100%; }
 body { 
   margin: 0; 
