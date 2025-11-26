@@ -24,7 +24,8 @@ export class AgrRegistroComponent {
   selectedPersonajeEmisor : any =0;
   selectedEscenario: any = '';  // Variable para almacenar el valor seleccionado
   selectedMovimiento: any = '';  // Variable para almacenar el valor seleccionado
-
+  
+  textboxPosicion: any = '';  // Variable para almacenar el valor seleccionado
   textboxRage: any =''
   chkDiOptimo: boolean = false;
   chkDiNinguno: boolean = false;
@@ -47,7 +48,7 @@ export class AgrRegistroComponent {
    console.log("Ingresamos a insertar ");
    let diFinal= false ;
    if(this.chkDiOptimo){diFinal=true; }
-   const response = await new registroService().insertarRegistro(this.selectedPersonajeEmisor,this.selectedPersonajeReceptor,this.selectedEscenario,this.selectedMovimiento,this.porcentajeKo,this.textboxRage,diFinal);
+   const response = await new registroService().insertarRegistro(this.selectedPersonajeEmisor,this.selectedPersonajeReceptor,this.selectedEscenario,this.selectedMovimiento,this.porcentajeKo,this.textboxRage,diFinal,this.textboxPosicion);
    
    console.log("response body",response);
    console.log("antes del emit")

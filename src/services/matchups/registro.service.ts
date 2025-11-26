@@ -39,7 +39,7 @@ async getAllRegistros(
 }
 
 
-  async insertarRegistro(emisor:any,receptor:any,escenario:any,movimiento:any,KO:any,rage:any,diFinal:any): Promise<any> {
+  async insertarRegistro(emisor:any,receptor:any,escenario:any,movimiento:any,KO:any,rage:any,diFinal:any,posicion:any): Promise<any> {
     console.log("dsede srevice insertar receptor ,escenario y porcentaje son: ",emisor, receptor,escenario,movimiento,KO);
     //Creamos el json para enviar data
     const obj = {
@@ -48,6 +48,7 @@ async getAllRegistros(
       "idPersonajeReceptor": receptor,
       "idMovimiento": movimiento,
       "idEscenario": escenario,
+       "idPosicion": posicion,
       "porcentajeKO": KO,
       "rage" :rage ,
       "di":diFinal
@@ -69,7 +70,7 @@ async getAllRegistros(
   }
 
 
-  async updateRegistro(id:any,emisor:any, receptor:any,escenario:any,movimiento:any,KO:any,rage:any,diFinal:any): Promise<any> {
+  async updateRegistro(id:any,emisor:any, receptor:any,escenario:any,movimiento:any,KO:any,rage:any,diFinal:any,posicion:any): Promise<any> {
    const rageInt=parseInt(rage);
    console.log("el valor del DI es  ;"+ diFinal);
     const obj = {
@@ -78,10 +79,10 @@ async getAllRegistros(
       "idPersonajeReceptor": receptor,
       "idMovimiento": movimiento,
        "idEscenario": escenario,
-      "idPosicion": 1,
+      "idPosicion": posicion,
       "porcentajeKO": KO,
       "rage" : rageInt,
-      "di":diFinal
+      "di":diFinal,
     }
     const response = await
     fetch(url_entorno() + '/apiSmash/Registro', {

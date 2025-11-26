@@ -25,6 +25,7 @@ export class EditarRegistroComponent {
   selectedPersonajeEmisor : any =0;
   selectedMovimiento:any=0;
   selectedEscenario: any = 0;  // Variable para almacenar el valor seleccionado
+    textboxPosicion: any = '';  // Variable para almacenar el valor seleccionado
   textboxRage: any =0;
   chkDiOptimo: boolean = false;
   chkDiNinguno: boolean = false;
@@ -36,6 +37,7 @@ export class EditarRegistroComponent {
   @Input() inputIdPjReceptor!: number;
   @Input() inputIdEscenario!: number;
   @Input() inputIdMovimiento!: number;
+  @Input() inputIdPosicion!: number;
   @Input() inputIdKO!: number;
   @Input() inputRage!: number; // Rage del personaje receptor
   //Actualizar el componente padre
@@ -50,6 +52,7 @@ export class EditarRegistroComponent {
     this.selectedPersonajeReceptor = this.inputIdPjReceptor;
     this.selectedEscenario = this.inputIdEscenario;
     this.selectedMovimiento = this.inputIdMovimiento;
+    this.textboxPosicion = this.inputIdPosicion;
     this.porcentajeKo = this.inputIdKO;
     this.textboxRage = this.inputRage; // Rage del personaje receptor
   }
@@ -58,7 +61,7 @@ export class EditarRegistroComponent {
   async  updatePorcentajeKO() {
     let diFinal= false ;
     if(this.chkDiOptimo){diFinal=true;}
-    console.log("Receptor ,escenario y porcentaje son: ",this.inputIdRegistro,this.selectedPersonajeEmisor,this.selectedPersonajeReceptor,this.selectedMovimiento,this.selectedEscenario,this.porcentajeKo,this.textboxRage,diFinal);
+    console.log("Receptor ,escenario y porcentaje son: ",this.inputIdRegistro,this.selectedPersonajeEmisor,this.selectedPersonajeReceptor,this.selectedMovimiento,this.selectedEscenario,this.porcentajeKo,this.textboxRage,diFinal,this.textboxPosicion);
     const response = await new registroService().updateRegistro(
       this.inputIdRegistro,
       this.selectedPersonajeEmisor,
@@ -67,7 +70,8 @@ export class EditarRegistroComponent {
       this.selectedMovimiento,
       this.porcentajeKo,
       this.textboxRage,
-      this.chkDiOptimo ? true : false // Convertimos a booleano
+      this.chkDiOptimo ? true : false, // Convertimos a booleano
+           this.textboxPosicion,
     );
     this.actualizarLista.emit(); // Luego, emite el evento para actualizar la tabla
   // Muestra un mensaje por 2 segundos
