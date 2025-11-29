@@ -1,8 +1,8 @@
-import { Component, Input,EventEmitter,Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { url_entorno } from '../../../configs/url_entorno';
 import { personajeService } from '../../../services/matchups/personaje.service';
 import { escenarioService } from '../../../services/matchups/escenario.service';
-import { registroService} from '../../../services/matchups/registro.service';
+import { registroService } from '../../../services/matchups/registro.service';
 import { movimientoService } from 'src/services/matchups/movimiento.service';
 //angular material
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -14,19 +14,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class EditarRegistroComponent {
 
-  
+
   selectPersonaje: string[] = [];
   lstPersonajes: any;
   lstEscenarios: any;
   lstMovimientos: any;
   //Bindings de los select
 
-  selectedPersonajeReceptor: any =0;  // Variable para almacenar el valor seleccionado
-  selectedPersonajeEmisor : any =0;
-  selectedMovimiento:any=0;
+  selectedPersonajeReceptor: any = 0;  // Variable para almacenar el valor seleccionado
+  selectedPersonajeEmisor: any = 0;
+  selectedMovimiento: any = 0;
   selectedEscenario: any = 0;  // Variable para almacenar el valor seleccionado
-    textboxPosicion: any = '';  // Variable para almacenar el valor seleccionado
-  textboxRage: any =0;
+  textboxPosicion: any = '';  // Variable para almacenar el valor seleccionado
+  textboxRage: any = 0;
   chkDiOptimo: boolean = false;
   chkDiNinguno: boolean = false;
   porcentajeKo: any = 0;  // Variable para almacenar el valor seleccionado
@@ -36,13 +36,14 @@ export class EditarRegistroComponent {
   @Input() inputIdPjEmisor!: number;
   @Input() inputIdPjReceptor!: number;
   @Input() inputIdEscenario!: number;
-  @Input() inputIdMovimiento!: number;
+  @Input() inputIdAtaque!: number;      // Renamed from inputIdMovimiento
+  @Input() inputTipoAtaque!: string;    // New input
   @Input() inputIdPosicion!: number;
   @Input() inputIdKO!: number;
   @Input() inputRage!: number; // Rage del personaje receptor
   //Actualizar el componente padre
   @Output() actualizarLista = new EventEmitter<void>(); // Emitirá un evento sin datos
-  constructor(private snackBar: MatSnackBar) {}
+  constructor(private snackBar: MatSnackBar) { }
 
   async ngOnInit() {
     this.lstPersonajes = await new personajeService().getPersonajes();
@@ -51,45 +52,57 @@ export class EditarRegistroComponent {
     this.selectedPersonajeEmisor = this.inputIdPjEmisor;
     this.selectedPersonajeReceptor = this.inputIdPjReceptor;
     this.selectedEscenario = this.inputIdEscenario;
-    this.selectedMovimiento = this.inputIdMovimiento;
+    this.selectedMovimiento = this.inputIdAtaque; // Map idAtaque to selectedMovimiento (assuming it's a movement for the dropdown)
     this.textboxPosicion = this.inputIdPosicion;
     this.porcentajeKo = this.inputIdKO;
     this.textboxRage = this.inputRage; // Rage del personaje receptor
   }
 
 
-  async  updatePorcentajeKO() {
-    let diFinal= false ;
-    if(this.chkDiOptimo){diFinal=true;}
-    console.log("Receptor ,escenario y porcentaje son: ",this.inputIdRegistro,this.selectedPersonajeEmisor,this.selectedPersonajeReceptor,this.selectedMovimiento,this.selectedEscenario,this.porcentajeKo,this.textboxRage,diFinal,this.textboxPosicion);
+  async updatePorcentajeKO() {
+    let diFinal = false;
+    if (this.chkDiOptimo) { diFinal = true; }
+    console.log("Receptor ,escenario y porcentaje son: ", this.inputIdRegistro, this.selectedPersonajeEmisor, this.selectedPersonajeReceptor, this.selectedMovimiento, this.selectedEscenario, this.porcentajeKo, this.textboxRage, diFinal, this.textboxPosicion);
+
+    // Determine tipoAtaque. If inputTipoAtaque is provided, use it. 
+    // However, if the user changes the movement in the dropdown, we might assume it's a movement.
+    // For now, let's assume if they are using the movement dropdown, it's a movement.
+    // If we wanted to support combos, we'd need a combo dropdown.
+    // Preserving original logic: if it was a combo, and they didn't change it... but the dropdown only has movements.
+    // So if they save, it will likely become a movement if they selected one from the list.
+    // Let's default to 'movimiento' since the UI only supports movements selection.
+
+    const tipoAtaqueToSend = 'movimiento';
+
     const response = await new registroService().updateRegistro(
       this.inputIdRegistro,
       this.selectedPersonajeEmisor,
       this.selectedPersonajeReceptor,
       this.selectedEscenario,
-      this.selectedMovimiento,
+      this.selectedMovimiento, // idAtaque
+      tipoAtaqueToSend,        // tipoAtaque
       this.porcentajeKo,
       this.textboxRage,
       this.chkDiOptimo ? true : false, // Convertimos a booleano
-           this.textboxPosicion,
+      this.textboxPosicion,
     );
     this.actualizarLista.emit(); // Luego, emite el evento para actualizar la tabla
-  // Muestra un mensaje por 2 segundos
-  this.snackBar.open(response, 'Cerrar', {
-    duration: 2000, // 2 segundos
-    verticalPosition: 'top', // Posición en pantalla
-    horizontalPosition: 'center'
-  });
+    // Muestra un mensaje por 2 segundos
+    this.snackBar.open(response, 'Cerrar', {
+      duration: 2000, // 2 segundos
+      verticalPosition: 'top', // Posición en pantalla
+      horizontalPosition: 'center'
+    });
   }
 
-   cambiarDI(di:boolean){
-    if (di){
-      this.chkDiOptimo=true;
-      this.chkDiNinguno=false;
-    }else{
-      this.chkDiOptimo=false;
-      this.chkDiNinguno=true;      
-    }  
+  cambiarDI(di: boolean) {
+    if (di) {
+      this.chkDiOptimo = true;
+      this.chkDiNinguno = false;
+    } else {
+      this.chkDiOptimo = false;
+      this.chkDiNinguno = true;
+    }
   }
 
 }

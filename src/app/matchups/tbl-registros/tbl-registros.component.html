@@ -1,6 +1,6 @@
 <div class="container justify-content-center">
   <div class="container col-6 rounded bg-transparent text-dark">
-   <!-- TABLA DATA -->
+    <!-- TABLA DATA -->
     <table class="table mi-tabla table-striped table-bordered">
 
       <colgroup>
@@ -21,7 +21,7 @@
         <tr>
           <th scope="col" class="textEncabezado">Emi</th>
           <th scope="col" class="textEncabezado">Rec</th>
-          <th scope="col" class="textEncabezado">Mov</th>
+          <th scope="col" class="textEncabezado">Ataque</th>
           <th scope="col" class="textEncabezado col-rage">Rage</th>
           <th scope="col" class="textEncabezado">Esc</th>
           <th scope="col" class="textEncabezado">Pos</th>
@@ -36,13 +36,16 @@
 
       <tbody>
         <tr>
-          
+
           <td><input [(ngModel)]="filtroEmisor" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
-          <td><input [(ngModel)]="filtroReceptor" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
-          <td  ><input [(ngModel)]="filtroMov" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
-          <td class="col-rage"><input [(ngModel)]="filtroRage" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
+          <td><input [(ngModel)]="filtroReceptor" (ngModelChange)="cargarRegistros()" type="text" class="txtListado">
+          </td>
+          <td><input [(ngModel)]="filtroMov" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
+          <td class="col-rage"><input [(ngModel)]="filtroRage" (ngModelChange)="cargarRegistros()" type="text"
+              class="txtListado"></td>
           <td><input [(ngModel)]="filtroStage" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
-          <td><input [(ngModel)]="filtroPosicion" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
+          <td><input [(ngModel)]="filtroPosicion" (ngModelChange)="cargarRegistros()" type="text" class="txtListado">
+          </td>
           <td></td>
           <td class="col-ko"><input type="text" class="txtListado"></td>
           <td></td>
@@ -53,20 +56,20 @@
         <tr *ngFor="let item of LstRegistros">
           <td>{{ item.abreviaturaEmisor }}</td>
           <td>{{ item.abreviaturaReceptor }}</td>
-        <td class="col-movimiento">
-  {{ item.idMovimiento > 999 ? item.nombreMovimiento : item.abreviaturaMovimiento }}
-</td>
+          <td class="col-movimiento">
+            {{ item.nombreAtaque }}
+          </td>
           <td class="col-rage">{{ item.rage }}%</td>
           <td>{{ item.abreviaturaEscenario }}</td>
           <td>{{ item.nombrePosicion }}</td>
-         <td>{{ item.di ? 't' : 'f' }}</td>
+          <td>{{ item.di ? 't' : 'f' }}</td>
           <td class="col-ko">{{ item.porcentajeKO }}%</td>
           <td>
             <div class="action-buttons">
               <app-editar-registro [inputIdRegistro]="item.id" [inputIdPjEmisor]="item.idPersonajeEmisor"
                 [inputIdPjReceptor]="item.idPersonajeReceptor" [inputIdEscenario]="item.idEscenario"
-                [inputIdMovimiento]="item.idMovimiento" [inputIdKO]="item.porcentajeKO" [inputRage]="item.rage"
-                (actualizarLista)="cargarRegistros()">
+                [inputIdAtaque]="item.idAtaque" [inputTipoAtaque]="item.tipoAtaque" [inputIdKO]="item.porcentajeKO"
+                [inputRage]="item.rage" [inputIdPosicion]="item.idPosicion" (actualizarLista)="cargarRegistros()">
               </app-editar-registro>
 
               <app-eliminar-registro [inputIdRegistro]="item.id" (actualizarLista)="cargarRegistros()">
@@ -79,17 +82,17 @@
         </tr>
       </tbody>
     </table>
-   <!-- CHECKBOXS DI -->
+    <!-- CHECKBOXS DI -->
     <div style="display: flex; align-items: center; gap: 10px;">
       <span><strong>D.I:</strong></span>
       <label>
-      <input type="checkbox" name="di" value="si">
-           SI
+        <input type="checkbox" name="di" value="si">
+        SI
       </label>
 
       <label>
-      <input type="checkbox" name="di" value="no">
-             NO
+        <input type="checkbox" name="di" value="no">
+        NO
       </label>
     </div>
     <!-- BTN AGREGAR -->
