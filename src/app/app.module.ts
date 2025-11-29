@@ -15,13 +15,12 @@ import { MatchupsComponent } from './matchups/matchups.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 //Nietos y Bis-Nietos
-import { TblRegistrosComponent } from './matchups/tbl-registros/tbl-registros.component'
-import { AgrRegistroComponent } from './matchups/agr-registro/agr-registro.component';
+import {TblRegistrosComponent} from './matchups/tbl-registros/tbl-registros.component'
+import {AgrRegistroComponent} from  './matchups/agr-registro/agr-registro.component';
 import { EditarRegistroComponent } from './matchups/editar-registro/editar-registro.component';
 import { EliminarRegistroComponent } from './matchups/eliminar-registro/eliminar-registro.component'
 import { BtnBackupComponent } from './btn-backup/btn-backup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -39,10 +38,9 @@ import { AuthModule } from './auth/auth.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
+    FormsModule ,
     MatButtonModule,
-    MatSnackBarModule,
-    AuthModule
+    MatSnackBarModule     
   ],
   providers: [],
   bootstrap: [AppComponent]

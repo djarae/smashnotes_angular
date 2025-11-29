@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { url_entorno } from '../../configs/url_entorno';
-import { Router } from '@angular/router';
-import { AuthService } from '../auth/auth.service';
+import {url_entorno} from '../../configs/url_entorno';
 
 
 @Component({
@@ -11,14 +9,6 @@ import { AuthService } from '../auth/auth.service';
 })
 export class MatchupsComponent {
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) { }
 
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['/login']);
-  }
 
 }
