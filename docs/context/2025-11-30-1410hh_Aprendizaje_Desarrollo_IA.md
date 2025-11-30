@@ -15,3 +15,8 @@
     2.3 **Analizar los porcentaje de kill o dmg de movs** para "x" personaje en "y" contexto. (contexto: escenario,posicion,mov ,propiedad mov etc)
 
 3. **Desarrollo Optimo:** Colocar console . log antes de enviar al api , en la info que llega al front, justo a llegar la info al backend , y en service justo antes de enviar info al repository (en backend varios mensajes)
+
+4. **Naturaleza del Proyecto (Fighting Games vs Apps Comunes):**
+    *   A diferencia de apps estándar (como gestión de gastos) donde la lógica es predecible, una app de Fighting Games implica **Reglas de Negocio complejas y únicas**.
+    *   El desafío no es solo CRUD, sino inventar métodos de estudio y mejora competitiva.
+    *   **Conclusión de Diseño:** Para escalar sin modificar el esquema constantemente, es mejor usar una tabla única `Ataque` con catálogos para `Tipo` y `Propiedad`. Los combos, al ser complejos, se manejarán con una tabla anexa pero vinculada a esta estructura unificada.

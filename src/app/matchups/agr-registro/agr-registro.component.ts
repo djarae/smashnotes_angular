@@ -90,8 +90,6 @@ export class AgrRegistroComponent {
       verticalPosition: 'top', // Posición en pantalla
       horizontalPosition: 'center'
     });
-
-
   }
 
   cambiarDI(di: boolean) {
