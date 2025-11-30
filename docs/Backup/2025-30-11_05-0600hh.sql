@@ -2,12 +2,12 @@
 -- PostgreSQL database dump
 --
 
-\restrict SMp9fCCKZAkhEWskdtvp5l0Gz77oQXUW7H4bvdQFeVgqhLGF2zUTqPKDJhKQ4Af
+\restrict vZiEHVHayKMXX7JI8tNlW4AiUev4bfjssoncKyoGZgJ3IMkAlvw24QNaqnjs8Tk
 
 -- Dumped from database version 17.6 (0d47993)
 -- Dumped by pg_dump version 17.6 (Debian 17.6-1.pgdg12+1)
 
--- Started on 2025-11-30 08:13:33 UTC
+-- Started on 2025-11-30 08:51:06 UTC
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -35,9 +35,6 @@ CREATE TABLE public.ataque (
     id_movimiento integer,
     id_combo integer,
     tipo_ataque character varying(255) NOT NULL,
-    id_propiedad integer,
-    abreviatura character varying(255),
-    nombre character varying(255),
     CONSTRAINT ataque_check CHECK (((((tipo_ataque)::text = 'movimiento'::text) AND (id_movimiento IS NOT NULL) AND (id_combo IS NULL)) OR (((tipo_ataque)::text = 'combo'::text) AND (id_combo IS NOT NULL) AND (id_movimiento IS NULL)))),
     CONSTRAINT ataque_tipo_ataque_check CHECK (((tipo_ataque)::text = ANY (ARRAY['movimiento'::text, 'combo'::text])))
 );
@@ -62,7 +59,7 @@ CREATE SEQUENCE public.ataque_id_seq
 ALTER SEQUENCE public.ataque_id_seq OWNER TO neondb_owner;
 
 --
--- TOC entry 3444 (class 0 OID 0)
+-- TOC entry 3441 (class 0 OID 0)
 -- Dependencies: 229
 -- Name: ataque_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: neondb_owner
 --
@@ -101,7 +98,7 @@ CREATE SEQUENCE public.ataque_propiedad_id_seq
 ALTER SEQUENCE public.ataque_propiedad_id_seq OWNER TO neondb_owner;
 
 --
--- TOC entry 3445 (class 0 OID 0)
+-- TOC entry 3442 (class 0 OID 0)
 -- Dependencies: 227
 -- Name: ataque_propiedad_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: neondb_owner
 --
@@ -140,7 +137,7 @@ CREATE SEQUENCE public.combo_id_seq
 ALTER SEQUENCE public.combo_id_seq OWNER TO neondb_owner;
 
 --
--- TOC entry 3446 (class 0 OID 0)
+-- TOC entry 3443 (class 0 OID 0)
 -- Dependencies: 225
 -- Name: combo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: neondb_owner
 --
@@ -179,7 +176,7 @@ CREATE SEQUENCE public.combo_movimiento_id_seq
 ALTER SEQUENCE public.combo_movimiento_id_seq OWNER TO neondb_owner;
 
 --
--- TOC entry 3447 (class 0 OID 0)
+-- TOC entry 3444 (class 0 OID 0)
 -- Dependencies: 231
 -- Name: combo_movimiento_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: neondb_owner
 --
@@ -260,9 +257,7 @@ CREATE TABLE public.registro (
     di boolean,
     porcentaje_ko integer,
     id_ataque bigint,
-    tipo_ataque character varying(255),
-    id_combo integer,
-    id_movimiento integer
+    id_propiedad_ataque integer
 );
 
 
@@ -284,7 +279,7 @@ CREATE SEQUENCE public.registro_id_seq
 ALTER SEQUENCE public.registro_id_seq OWNER TO neondb_owner;
 
 --
--- TOC entry 3448 (class 0 OID 0)
+-- TOC entry 3445 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: registro_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: neondb_owner
 --
@@ -323,7 +318,7 @@ CREATE SEQUENCE public.tipo_ataque_id_seq
 ALTER SEQUENCE public.tipo_ataque_id_seq OWNER TO neondb_owner;
 
 --
--- TOC entry 3449 (class 0 OID 0)
+-- TOC entry 3446 (class 0 OID 0)
 -- Dependencies: 233
 -- Name: tipo_ataque_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: neondb_owner
 --
@@ -409,40 +404,40 @@ ALTER TABLE ONLY public.tipo_ataque ALTER COLUMN id SET DEFAULT nextval('public.
 
 
 --
--- TOC entry 3434 (class 0 OID 139360)
+-- TOC entry 3431 (class 0 OID 139360)
 -- Dependencies: 230
 -- Data for Name: ataque; Type: TABLE DATA; Schema: public; Owner: neondb_owner
 --
 
-COPY public.ataque (id, id_movimiento, id_combo, tipo_ataque, id_propiedad, abreviatura, nombre) FROM stdin;
-1	1	\N	movimiento	1	\N	\N
-2	2	\N	movimiento	1	\N	\N
-3	3	\N	movimiento	1	\N	\N
-4	4	\N	movimiento	1	\N	\N
-5	5	\N	movimiento	1	\N	\N
-6	6	\N	movimiento	1	\N	\N
-7	7	\N	movimiento	1	\N	\N
-8	8	\N	movimiento	1	\N	\N
-9	9	\N	movimiento	1	\N	\N
-10	10	\N	movimiento	1	\N	\N
-11	11	\N	movimiento	1	\N	\N
-12	12	\N	movimiento	1	\N	\N
-13	13	\N	movimiento	1	\N	\N
-14	14	\N	movimiento	1	\N	\N
-15	15	\N	movimiento	1	\N	\N
-16	16	\N	movimiento	1	\N	\N
-17	17	\N	movimiento	1	\N	\N
-18	18	\N	movimiento	1	\N	\N
-19	19	\N	movimiento	1	\N	\N
-20	20	\N	movimiento	1	\N	\N
-21	21	\N	movimiento	1	\N	\N
-10001	\N	1	combo	1	\N	\N
-10002	\N	2	combo	1	\N	\N
+COPY public.ataque (id, id_movimiento, id_combo, tipo_ataque) FROM stdin;
+1	1	\N	movimiento
+2	2	\N	movimiento
+3	3	\N	movimiento
+4	4	\N	movimiento
+5	5	\N	movimiento
+6	6	\N	movimiento
+7	7	\N	movimiento
+8	8	\N	movimiento
+9	9	\N	movimiento
+10	10	\N	movimiento
+11	11	\N	movimiento
+12	12	\N	movimiento
+13	13	\N	movimiento
+14	14	\N	movimiento
+15	15	\N	movimiento
+16	16	\N	movimiento
+17	17	\N	movimiento
+18	18	\N	movimiento
+19	19	\N	movimiento
+20	20	\N	movimiento
+21	21	\N	movimiento
+10001	\N	1	combo
+10002	\N	2	combo
 \.
 
 
 --
--- TOC entry 3432 (class 0 OID 139349)
+-- TOC entry 3429 (class 0 OID 139349)
 -- Dependencies: 228
 -- Data for Name: ataque_propiedad; Type: TABLE DATA; Schema: public; Owner: neondb_owner
 --
@@ -456,7 +451,7 @@ COPY public.ataque_propiedad (id, nombre, abreviatura) FROM stdin;
 
 
 --
--- TOC entry 3430 (class 0 OID 139265)
+-- TOC entry 3427 (class 0 OID 139265)
 -- Dependencies: 226
 -- Data for Name: combo; Type: TABLE DATA; Schema: public; Owner: neondb_owner
 --
@@ -468,7 +463,7 @@ COPY public.combo (id, nombre, abreviatura) FROM stdin;
 
 
 --
--- TOC entry 3436 (class 0 OID 139386)
+-- TOC entry 3433 (class 0 OID 139386)
 -- Dependencies: 232
 -- Data for Name: combo_movimiento; Type: TABLE DATA; Schema: public; Owner: neondb_owner
 --
@@ -478,7 +473,7 @@ COPY public.combo_movimiento (id, id_combo, id_movimiento) FROM stdin;
 
 
 --
--- TOC entry 3421 (class 0 OID 16513)
+-- TOC entry 3418 (class 0 OID 16513)
 -- Dependencies: 217
 -- Data for Name: escenario; Type: TABLE DATA; Schema: public; Owner: neondb_owner
 --
@@ -496,7 +491,7 @@ COPY public.escenario (id, nombre, abreviatura) FROM stdin;
 
 
 --
--- TOC entry 3422 (class 0 OID 16518)
+-- TOC entry 3419 (class 0 OID 16518)
 -- Dependencies: 218
 -- Data for Name: movimiento; Type: TABLE DATA; Schema: public; Owner: neondb_owner
 --
@@ -527,7 +522,7 @@ COPY public.movimiento (id, nombre, abreviatura) FROM stdin;
 
 
 --
--- TOC entry 3423 (class 0 OID 16523)
+-- TOC entry 3420 (class 0 OID 16523)
 -- Dependencies: 219
 -- Data for Name: personaje; Type: TABLE DATA; Schema: public; Owner: neondb_owner
 --
@@ -619,7 +614,7 @@ COPY public.personaje (id, echo, nombre, abreviatura) FROM stdin;
 
 
 --
--- TOC entry 3424 (class 0 OID 16530)
+-- TOC entry 3421 (class 0 OID 16530)
 -- Dependencies: 220
 -- Data for Name: posicion; Type: TABLE DATA; Schema: public; Owner: neondb_owner
 --
@@ -632,30 +627,30 @@ COPY public.posicion (id, nombre, vertical_horizontal, abreviatura) FROM stdin;
 
 
 --
--- TOC entry 3426 (class 0 OID 98305)
+-- TOC entry 3423 (class 0 OID 98305)
 -- Dependencies: 222
 -- Data for Name: registro; Type: TABLE DATA; Schema: public; Owner: neondb_owner
 --
 
-COPY public.registro (id, id_personaje_emisor, id_personaje_receptor, id_escenario, id_posicion, rage, di, porcentaje_ko, id_ataque, tipo_ataque, id_combo, id_movimiento) FROM stdin;
-1	35	63	1	1	0	t	105	16	1	\N	\N
-2	35	36	1	1	0	t	111	16	1	\N	\N
-3	35	73	1	1	0	t	122	16	1	\N	\N
-4	35	66	1	1	0	t	122	16	1	\N	\N
-5	35	74	1	1	0	t	125	16	1	\N	\N
-6	35	79	1	1	0	t	115	16	1	\N	\N
-7	35	36	1	1	150	t	83	16	1	\N	\N
-8	35	36	1	1	75	t	101	16	1	\N	\N
-9	35	36	1	1	100	t	96	16	1	\N	\N
-10	35	36	1	1	0	t	108	7	1	\N	\N
-11	35	66	1	1	0	t	122	7	1	\N	\N
-12	34	66	1	2	0	t	124	\N	1	\N	\N
-53	2	2	2	2	1	f	22	\N	1	\N	17
+COPY public.registro (id, id_personaje_emisor, id_personaje_receptor, id_escenario, id_posicion, rage, di, porcentaje_ko, id_ataque, id_propiedad_ataque) FROM stdin;
+1	35	63	1	1	0	t	105	16	\N
+2	35	36	1	1	0	t	111	16	\N
+3	35	73	1	1	0	t	122	16	\N
+4	35	66	1	1	0	t	122	16	\N
+5	35	74	1	1	0	t	125	16	\N
+6	35	79	1	1	0	t	115	16	\N
+7	35	36	1	1	150	t	83	16	\N
+8	35	36	1	1	75	t	101	16	\N
+9	35	36	1	1	100	t	96	16	\N
+10	35	36	1	1	0	t	108	7	\N
+11	35	66	1	1	0	t	122	7	\N
+12	34	66	1	2	0	t	124	\N	\N
+55	3	4	5	3	22	t	22	\N	\N
 \.
 
 
 --
--- TOC entry 3438 (class 0 OID 204811)
+-- TOC entry 3435 (class 0 OID 204811)
 -- Dependencies: 234
 -- Data for Name: tipo_ataque; Type: TABLE DATA; Schema: public; Owner: neondb_owner
 --
@@ -667,7 +662,7 @@ COPY public.tipo_ataque (id, nombre, abreviatura) FROM stdin;
 
 
 --
--- TOC entry 3428 (class 0 OID 131074)
+-- TOC entry 3425 (class 0 OID 131074)
 -- Dependencies: 224
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: neondb_owner
 --
@@ -680,7 +675,7 @@ COPY public.users (id, password, username) FROM stdin;
 
 
 --
--- TOC entry 3450 (class 0 OID 0)
+-- TOC entry 3447 (class 0 OID 0)
 -- Dependencies: 229
 -- Name: ataque_id_seq; Type: SEQUENCE SET; Schema: public; Owner: neondb_owner
 --
@@ -689,7 +684,7 @@ SELECT pg_catalog.setval('public.ataque_id_seq', 21, true);
 
 
 --
--- TOC entry 3451 (class 0 OID 0)
+-- TOC entry 3448 (class 0 OID 0)
 -- Dependencies: 227
 -- Name: ataque_propiedad_id_seq; Type: SEQUENCE SET; Schema: public; Owner: neondb_owner
 --
@@ -698,7 +693,7 @@ SELECT pg_catalog.setval('public.ataque_propiedad_id_seq', 4, true);
 
 
 --
--- TOC entry 3452 (class 0 OID 0)
+-- TOC entry 3449 (class 0 OID 0)
 -- Dependencies: 225
 -- Name: combo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: neondb_owner
 --
@@ -707,7 +702,7 @@ SELECT pg_catalog.setval('public.combo_id_seq', 1, false);
 
 
 --
--- TOC entry 3453 (class 0 OID 0)
+-- TOC entry 3450 (class 0 OID 0)
 -- Dependencies: 231
 -- Name: combo_movimiento_id_seq; Type: SEQUENCE SET; Schema: public; Owner: neondb_owner
 --
@@ -716,16 +711,16 @@ SELECT pg_catalog.setval('public.combo_movimiento_id_seq', 1, false);
 
 
 --
--- TOC entry 3454 (class 0 OID 0)
+-- TOC entry 3451 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: registro_id_seq; Type: SEQUENCE SET; Schema: public; Owner: neondb_owner
 --
 
-SELECT pg_catalog.setval('public.registro_id_seq', 53, true);
+SELECT pg_catalog.setval('public.registro_id_seq', 55, true);
 
 
 --
--- TOC entry 3455 (class 0 OID 0)
+-- TOC entry 3452 (class 0 OID 0)
 -- Dependencies: 233
 -- Name: tipo_ataque_id_seq; Type: SEQUENCE SET; Schema: public; Owner: neondb_owner
 --
@@ -734,7 +729,7 @@ SELECT pg_catalog.setval('public.tipo_ataque_id_seq', 1, false);
 
 
 --
--- TOC entry 3456 (class 0 OID 0)
+-- TOC entry 3453 (class 0 OID 0)
 -- Dependencies: 223
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: neondb_owner
 --
@@ -851,7 +846,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 3271 (class 2606 OID 155651)
+-- TOC entry 3269 (class 2606 OID 155651)
 -- Name: ataque ataque_id_combo_fkey; Type: FK CONSTRAINT; Schema: public; Owner: neondb_owner
 --
 
@@ -860,7 +855,7 @@ ALTER TABLE ONLY public.ataque
 
 
 --
--- TOC entry 3272 (class 2606 OID 139370)
+-- TOC entry 3270 (class 2606 OID 139370)
 -- Name: ataque ataque_id_movimiento_fkey; Type: FK CONSTRAINT; Schema: public; Owner: neondb_owner
 --
 
@@ -869,16 +864,7 @@ ALTER TABLE ONLY public.ataque
 
 
 --
--- TOC entry 3273 (class 2606 OID 139380)
--- Name: ataque ataque_id_propiedad_fkey; Type: FK CONSTRAINT; Schema: public; Owner: neondb_owner
---
-
-ALTER TABLE ONLY public.ataque
-    ADD CONSTRAINT ataque_id_propiedad_fkey FOREIGN KEY (id_propiedad) REFERENCES public.ataque_propiedad(id);
-
-
---
--- TOC entry 3274 (class 2606 OID 155656)
+-- TOC entry 3271 (class 2606 OID 155656)
 -- Name: combo_movimiento combo_movimiento_id_combo_fkey; Type: FK CONSTRAINT; Schema: public; Owner: neondb_owner
 --
 
@@ -887,7 +873,7 @@ ALTER TABLE ONLY public.combo_movimiento
 
 
 --
--- TOC entry 3275 (class 2606 OID 139397)
+-- TOC entry 3272 (class 2606 OID 139397)
 -- Name: combo_movimiento combo_movimiento_id_movimiento_fkey; Type: FK CONSTRAINT; Schema: public; Owner: neondb_owner
 --
 
@@ -896,16 +882,7 @@ ALTER TABLE ONLY public.combo_movimiento
 
 
 --
--- TOC entry 3265 (class 2606 OID 204800)
--- Name: registro fk1bq54cdp7v9mu0wnykjvok1qf; Type: FK CONSTRAINT; Schema: public; Owner: neondb_owner
---
-
-ALTER TABLE ONLY public.registro
-    ADD CONSTRAINT fk1bq54cdp7v9mu0wnykjvok1qf FOREIGN KEY (id_combo) REFERENCES public.combo(id);
-
-
---
--- TOC entry 3266 (class 2606 OID 98316)
+-- TOC entry 3265 (class 2606 OID 98316)
 -- Name: registro fkah285er29vhjxept79dlhl4w2; Type: FK CONSTRAINT; Schema: public; Owner: neondb_owner
 --
 
@@ -914,16 +891,7 @@ ALTER TABLE ONLY public.registro
 
 
 --
--- TOC entry 3267 (class 2606 OID 204805)
--- Name: registro fkdpfm7gdraq9tlsobxcd6big4; Type: FK CONSTRAINT; Schema: public; Owner: neondb_owner
---
-
-ALTER TABLE ONLY public.registro
-    ADD CONSTRAINT fkdpfm7gdraq9tlsobxcd6big4 FOREIGN KEY (id_movimiento) REFERENCES public.movimiento(id);
-
-
---
--- TOC entry 3268 (class 2606 OID 180226)
+-- TOC entry 3266 (class 2606 OID 180226)
 -- Name: registro fkh6lxcq5mv9whpo3u8clktk1h6; Type: FK CONSTRAINT; Schema: public; Owner: neondb_owner
 --
 
@@ -932,7 +900,7 @@ ALTER TABLE ONLY public.registro
 
 
 --
--- TOC entry 3269 (class 2606 OID 98321)
+-- TOC entry 3267 (class 2606 OID 98321)
 -- Name: registro fknponbfiwck9eaewokvv06yfr4; Type: FK CONSTRAINT; Schema: public; Owner: neondb_owner
 --
 
@@ -941,7 +909,7 @@ ALTER TABLE ONLY public.registro
 
 
 --
--- TOC entry 3270 (class 2606 OID 98326)
+-- TOC entry 3268 (class 2606 OID 98326)
 -- Name: registro fks3a0l9s70k1cr6iutponq39fh; Type: FK CONSTRAINT; Schema: public; Owner: neondb_owner
 --
 
@@ -965,11 +933,11 @@ ALTER DEFAULT PRIVILEGES FOR ROLE cloud_admin IN SCHEMA public GRANT ALL ON SEQU
 ALTER DEFAULT PRIVILEGES FOR ROLE cloud_admin IN SCHEMA public GRANT ALL ON TABLES TO neon_superuser WITH GRANT OPTION;
 
 
--- Completed on 2025-11-30 08:13:34 UTC
+-- Completed on 2025-11-30 08:51:07 UTC
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict SMp9fCCKZAkhEWskdtvp5l0Gz77oQXUW7H4bvdQFeVgqhLGF2zUTqPKDJhKQ4Af
+\unrestrict vZiEHVHayKMXX7JI8tNlW4AiUev4bfjssoncKyoGZgJ3IMkAlvw24QNaqnjs8Tk
 
