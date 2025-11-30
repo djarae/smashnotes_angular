@@ -9,7 +9,6 @@ export class registroService {
     filtroStage: any,
     filtroMov: any
   ): Promise<any> {
-    console.log("desde el service getAllRegistros");
 
     // Reemplaza valores "undefined" o null por nada
     filtroMov = filtroMov ?? null;
@@ -19,7 +18,6 @@ export class registroService {
     filtroPosicion = filtroPosicion ?? null;
     filtroStage = filtroStage ?? null;
 
-    console.log("filtroEmisor y filtroMov son: ", filtroEmisor, filtroMov);
 
     // Construir parámetros dinámicamente
     const params = new URLSearchParams();
@@ -31,17 +29,15 @@ export class registroService {
     if (filtroStage) params.append('filtroStage', filtroStage);
 
     const url = `${url_entorno()}/apiSmash/Registro?${params.toString()}`;
-    console.log("url sample es ", url);
+    //console.log("url sample es ", url);
 
     const response = await fetch(url);
     const body = await response.json();
-    console.log("response body", body);
     return body;
   }
 
 
   async insertarRegistro(emisor: any, receptor: any, escenario: any, idAtaque: any, tipoAtaque: any, idAtaquePropiedad: any, idPosicion: any, KO: any, rage: any, diFinal: any): Promise<any> {
-    console.log("desde service insertar - idAtaque:", idAtaque, "tipoAtaque:", tipoAtaque, "idAtaquePropiedad:", idAtaquePropiedad);
     //Creamos el json para enviar data
     const obj = {
       "id": 0,
@@ -57,7 +53,7 @@ export class registroService {
       "di": diFinal
     };
 
-    console.log("objeto antes del insert", obj)
+    //console.log("objeto antes del insert", obj)
 
     //Enviamos data
     const response = await
@@ -70,14 +66,13 @@ export class registroService {
       }
       );
     const body = await response.text();
-    console.log("response body", body);
+    //console.log("response body", body);
     return body;
   }
 
 
   async updateRegistro(id: any, emisor: any, receptor: any, escenario: any, idAtaque: any, tipoAtaque: any, idAtaquePropiedad: any, idPosicion: any, KO: any, rage: any, diFinal: any): Promise<any> {
     const rageInt = parseInt(rage);
-    console.log("el valor del DI es  ;" + diFinal);
     const obj = {
       "id": id,
       "idPersonajeEmisor": emisor,
@@ -91,7 +86,7 @@ export class registroService {
       "rage": rageInt,
       "di": diFinal
     }
-    console.log("objeto antes del update", obj)
+    //console.log("objeto antes del update", obj)
     const response = await
       fetch(url_entorno() + '/apiSmash/Registro', {
         method: "PUT",
@@ -102,14 +97,12 @@ export class registroService {
       }
       );
     const body = await response.text();
-    console.log("response body", body);
+    //console.log("response body", body);
     return body;
   }
 
   async deleteRegistro(id: any) {
-    console.log("desde el service delete id es: ", id);
     var urltosend = '/apiSmash/Registro/' + id;
-    console.log("url to send ", urltosend);
     const response = await fetch(url_entorno() + urltosend, {
       method: "DELETE",
       headers: {
@@ -118,7 +111,7 @@ export class registroService {
     }
     );
     const body = await response.text();
-    console.log("response body", body);
+    //console.log("response body", body);
     return body;
   }
 
