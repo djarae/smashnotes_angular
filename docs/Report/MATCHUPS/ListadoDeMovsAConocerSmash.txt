@@ -1,0 +1,37 @@
+HORIZONTAL: "APRENDERME TODOS LOS PJS Y SITUACIONES , PARA UN SOLO MOVIMIENTO":
+	UPAIR  IVYSAUR
+	UPGRAB CHARIZRD
+
+VERTICAL: "APRENDERME TODOS LOS MOVS Y SITUACIONES, PARA UN SOLO PJ":
+	BOWSER
+	PICHU
+	¿MARIO AND CLOUD?
+***********************************************************************************************************************************************************************
+
+KILL PERCENTS DE MOVS UNITARIOS.
+	UPAIR   IVY
+	UPGRAB  ZARD
+	UPSMASH ZARD
+
+
+KILL PERCENTS COMBOS
+	NAIR UP B (ESQUINA)	  IVY
+	FTILT jab-lock => UPSMASH SQUIR
+	FTILT jab-lock => FSMASH
+
+
+DAMAGE DE MOVIMIENTOS
+	FTILT SQUIRTLE
+
+
+TUMBLING PERCENTES
+	FTILT SQUIRTLE
+	DTILT IVY
+	DTILT ZARD
+	NAIR ZARD
+***********************************************************************************************************************************************************************
+Movs útiles en neutral x pj:
+IVY:
+	BAIR
+	DTILT
+
