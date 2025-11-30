@@ -6,6 +6,7 @@ import { registroService } from '../../../services/matchups/registro.service';
 import { movimientoService } from 'src/services/matchups/movimiento.service';
 import { comboService } from '../../../services/matchups/combo.service';
 import { posicionService } from '../../../services/matchups/posicion.service';
+import { AtaquePropiedadService } from '../../../services/matchups/ataque-propiedad.service';
 //angular material
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -23,12 +24,14 @@ export class EditarRegistroComponent {
   lstMovimientos: any;
   lstCombos: any;
   lstPosiciones: any;
+  lstAtaquePropiedades: any;
   //Bindings de los select
 
   selectedPersonajeReceptor: any = 0;  // Variable para almacenar el valor seleccionado
   selectedPersonajeEmisor: any = 0;
   selectedMovimiento: any = '';
   selectedCombo: any = '';
+  selectedPropiedadAtaque: any = '';
   selectedPosicion: any = 0;
   selectedEscenario: any = 0;  // Variable para almacenar el valor seleccionado
   textboxRage: any = 0;
@@ -47,6 +50,7 @@ export class EditarRegistroComponent {
   @Input() inputIdPosicion!: number;
   @Input() inputIdKO!: number;
   @Input() inputRage!: number; // Rage del personaje receptor
+  @Input() inputIdPropiedadAtaque!: number;
   //Actualizar el componente padre
   @Output() actualizarLista = new EventEmitter<void>(); // Emitirá un evento sin datos
   constructor(private snackBar: MatSnackBar) { }
@@ -57,6 +61,7 @@ export class EditarRegistroComponent {
     this.lstMovimientos = await new movimientoService().getMovimientos();
     this.lstCombos = await new comboService().getCombos();
     this.lstPosiciones = await new posicionService().getPosiciones();
+    this.lstAtaquePropiedades = await new AtaquePropiedadService().getAtaquePropiedades();
     this.selectedPersonajeEmisor = this.inputIdPjEmisor;
     this.selectedPersonajeReceptor = this.inputIdPjReceptor;
     this.selectedEscenario = this.inputIdEscenario;
@@ -73,6 +78,7 @@ export class EditarRegistroComponent {
     this.selectedPosicion = this.inputIdPosicion;
     this.porcentajeKo = this.inputIdKO;
     this.textboxRage = this.inputRage; // Rage del personaje receptor
+    this.selectedPropiedadAtaque = this.inputIdPropiedadAtaque;
   }
 
 
@@ -99,6 +105,7 @@ export class EditarRegistroComponent {
       this.selectedEscenario,
       idAtaque,
       tipoAtaque,
+      this.selectedPropiedadAtaque,
       this.selectedPosicion,
       this.porcentajeKo,
       this.textboxRage,

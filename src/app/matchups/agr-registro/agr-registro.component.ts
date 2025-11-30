@@ -6,6 +6,7 @@ import { movimientoService } from '../../../services/matchups/movimiento.service
 import { comboService } from '../../../services/matchups/combo.service';
 import { posicionService } from '../../../services/matchups/posicion.service';
 import { registroService } from '../../../services/matchups/registro.service';
+import { AtaquePropiedadService } from '../../../services/matchups/ataque-propiedad.service';
 
 
 //angular material
@@ -23,12 +24,14 @@ export class AgrRegistroComponent {
   lstMovimientos: any;
   lstCombos: any;
   lstPosiciones: any;
+  lstAtaquePropiedades: any;
 
   selectedPersonajeReceptor: any = 0;  // Variable para almacenar el valor seleccionado
   selectedPersonajeEmisor: any = 0;
   selectedEscenario: any = '';  // Variable para almacenar el valor seleccionado
   selectedMovimiento: any = '';  // Variable para almacenar el valor seleccionado
   selectedCombo: any = '';  // Variable para almacenar el valor seleccionado
+  selectedPropiedadAtaque: any = ''; // Variable para almacenar la propiedad seleccionada
   selectedPosicion: any = 1;  // Por defecto Main Stage (id 1)
 
   textboxRage: any = ''
@@ -47,8 +50,10 @@ export class AgrRegistroComponent {
     this.lstMovimientos = await new movimientoService().getMovimientos();
     this.lstCombos = await new comboService().getCombos();
     this.lstPosiciones = await new posicionService().getPosiciones();
+    this.lstAtaquePropiedades = await new AtaquePropiedadService().getAtaquePropiedades();
     console.log("lstCombos cargados:", this.lstCombos);
     console.log("lstPosiciones cargadas:", this.lstPosiciones);
+    console.log("lstAtaquePropiedades cargadas:", this.lstAtaquePropiedades);
   }
 
   async addNuevoPorcentajeKO() {
@@ -74,6 +79,7 @@ export class AgrRegistroComponent {
     console.log("Escenario:", this.selectedEscenario);
     console.log("idAtaque:", idAtaque);
     console.log("tipoAtaque:", tipoAtaque);
+    console.log("idPropiedadAtaque:", this.selectedPropiedadAtaque);
     console.log("Posicion:", this.selectedPosicion);
     console.log("Porcentaje KO:", this.porcentajeKo);
     console.log("Rage:", this.textboxRage);
@@ -86,6 +92,7 @@ export class AgrRegistroComponent {
       this.selectedEscenario,
       idAtaque,
       tipoAtaque,
+      this.selectedPropiedadAtaque,
       this.selectedPosicion,
       this.porcentajeKo,
       this.textboxRage,
