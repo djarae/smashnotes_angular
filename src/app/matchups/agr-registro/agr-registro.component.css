@@ -3,7 +3,6 @@ dialog {
     top: 50%;
     left: 30%;
     transform: translate(-50%, -50%);
-  
 }
 
 dialog div {
@@ -13,7 +12,7 @@ dialog div {
 button {
     cursor: pointer;
     background-color: #2b0c5e;
-    color:white;
+    color: white;
 }
 
 button:first-child {
@@ -26,11 +25,8 @@ button:first-child {
 
 .botonx {
     display: flex;
-    justify-content: flex-end; /* Alinea el contenido a la derecha */
+    justify-content: flex-end;
 }
-
-
-
 
 .selectHover1:hover {
     background-color: greenyellow;
@@ -44,58 +40,80 @@ button:first-child {
     background-color: goldenrod;
 }
 
-
-
-
-
-
-
-
 .fila {
     display: flex;
-    align-items: center; /* Alinea verticalmente label y select */
-    gap: 10px; /* Espaciado entre el label y el select */
+    align-items: center;
+    gap: 10px;
     width: 100%;
 }
 
 .fila label {
-    white-space: nowrap; /* Evita que el label se divida en varias líneas */
+    white-space: nowrap;
 }
 
 .fila select {
-    flex: 1; /* Permite que el select ocupe el espacio disponible */
+    flex: 1;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
+.div-ataque {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    gap: 20px;
+    flex: 1;
+}
 
+.select-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
+.select-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+}
 
+/* Estilos para botones de posición */
+.pos-buttons {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
 
+.pos-buttons button {
+    flex: 1;
+    padding: 8px 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.3s;
+}
 
+.pos-buttons button:hover {
+    background-color: #f0f0f0;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.pos-buttons button.selected {
+    background-color: goldenrod;
+    border-color: goldenrod;
+    color: white;
+}
 
 @media screen and (max-width: 430px) {
-  
     dialog {
         position: fixed;
         top: 20%;
         left: 46%;
         transform: translate(-50%, -50%);
-        
     }
-  }
-  
+}

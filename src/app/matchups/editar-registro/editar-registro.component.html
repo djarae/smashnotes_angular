@@ -28,12 +28,12 @@
         </select>
         <!-- <p>Selected: {{ selectedPersonaje }}</p> -->
     </div>
-    
+
 
     <div class="fila">
         <label>Escenario :</label>
         <select [(ngModel)]="selectedEscenario" class="selectHover">
-            <option *ngFor="let item of lstEscenarios"  [value]="item.id">
+            <option *ngFor="let item of lstEscenarios" [value]="item.id">
                 {{item.nombre }}
             </option>
         </select>
@@ -43,7 +43,7 @@
     <div class="fila">
         <label>Movimiento :</label>
         <select [(ngModel)]="selectedMovimiento" class="selectHover">
-            <option *ngFor="let item of lstMovimientos"  [value]="item.id">
+            <option *ngFor="let item of lstMovimientos" [value]="item.id">
                 {{item.nombre }}
             </option>
         </select>
@@ -56,18 +56,28 @@
         <!-- <p>Selected: {{ selectedPersonaje }}</p> -->
     </div>
 
-      <div class="fila">
+    <div class="fila">
+        <label>Pos :</label>
+        <div class="pos-buttons">
+            <button *ngFor="let pos of lstPosiciones" [class.selected]="selectedPosicion === pos.id"
+                (click)="selectedPosicion = pos.id" type="button">
+                {{pos.abreviatura}}
+            </button>
+        </div>
+    </div>
+
+    <div class="fila">
         <label>DI :</label>
-         <div class="fila" style="display: flex; gap: 20px; align-items: center;">
-              <label>
-                <input type="checkbox"  [(ngModel)]="chkDiOptimo" (ngModelChange)="cambiarDI(true)" />
+        <div class="fila" style="display: flex; gap: 20px; align-items: center;">
+            <label>
+                <input type="checkbox" [(ngModel)]="chkDiOptimo" (ngModelChange)="cambiarDI(true)" />
                 Optimo
-              </label>
-              <label>
-                <input type="checkbox" [(ngModel)]="chkDiNinguno" (ngModelChange)="cambiarDI(false)"/>
+            </label>
+            <label>
+                <input type="checkbox" [(ngModel)]="chkDiNinguno" (ngModelChange)="cambiarDI(false)" />
                 Ninguno
-              </label>
-          </div>
+            </label>
+        </div>
     </div>
 
     <div class="fila">
@@ -76,13 +86,12 @@
         <!-- <p>ko: {{ porcentajeKo }}</p> -->
     </div>
     <div class="boton ">
-        <a (click)="updatePorcentajeKO()"> EDITAR  </a>
+        <a (click)="updatePorcentajeKO()"> EDITAR </a>
     </div>
 </dialog>
 <div className="button-container">
-    <a
-    class="boton" (click)="myDialog.show()"
-    >
-    <img     src="https://img.icons8.com/ios/50/FFFFFF/edit--v1.png" alt="Edit Icon" style="width: 22px; height: 22px;" /> 
+    <a class="boton" (click)="myDialog.show()">
+        <img src="https://img.icons8.com/ios/50/FFFFFF/edit--v1.png" alt="Edit Icon"
+            style="width: 22px; height: 22px;" />
     </a>
-  </div>
+</div>
