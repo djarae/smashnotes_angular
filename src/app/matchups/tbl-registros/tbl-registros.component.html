@@ -60,6 +60,23 @@
             {{ item.idAtaque > 999 ? item.nombreAtaque : item.abreviaturaAtaque }}
           </td>
           <td class="col-rage">{{ item.rage }}%</td>
+          <td>{{ item.abreviaturaEscenario }}</td>
+          <td>{{ item.abreviaturaPosicion }}</td>
+          <td>{{ item.di ? 't' : 'f' }}</td>
+          <td class="col-ko">{{ item.porcentajeKO }}%</td>
+          <td>
+            <div class="action-buttons">
+              <app-editar-registro [inputIdRegistro]="item.id" [inputIdPjEmisor]="item.idPersonajeEmisor"
+                [inputIdPjReceptor]="item.idPersonajeReceptor" [inputIdEscenario]="item.idEscenario"
+                [inputIdMovimiento]="item.idMovimiento" [inputIdAtaque]="item.idAtaque" [inputIdCombo]="item.idCombo"
+                [inputIdPosicion]="item.idPosicion" [inputIdKO]="item.porcentajeKO" [inputRage]="item.rage"
+                (actualizarLista)="cargarRegistros()">
+              </app-editar-registro>
+
+              <app-eliminar-registro [inputIdRegistro]="item.id" (actualizarLista)="cargarRegistros()">
+              </app-eliminar-registro>
+            </div>
+          </td>
           <td class="col-id">{{ item.id }}</td>
 
           <td></td>

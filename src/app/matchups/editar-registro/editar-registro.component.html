@@ -40,14 +40,28 @@
         <!-- <p>Selected: {{ selectedEscenario }}</p> -->
     </div>
 
-    <div class="fila">
-        <label>Movimiento :</label>
-        <select [(ngModel)]="selectedMovimiento" class="selectHover">
-            <option *ngFor="let item of lstMovimientos" [value]="item.id">
-                {{item.nombre }}
-            </option>
-        </select>
-        <!-- <p>Selected: {{ selectedEscenario }}</p> -->
+    <div class="div-ataque">
+        <div class="select-group">
+            <label class="select-label">Movimiento</label>
+            <select [(ngModel)]="selectedMovimiento" (change)="onMovimientoChange()" class="selectHover"
+                [disabled]="selectedCombo !== '' && selectedCombo !== null">
+                <option value="">-- Seleccionar --</option>
+                <option *ngFor="let item of lstMovimientos" [value]="item.id">
+                    {{item.nombre}}
+                </option>
+            </select>
+        </div>
+
+        <div class="select-group">
+            <label class="select-label">Combo</label>
+            <select [(ngModel)]="selectedCombo" (change)="onComboChange()" class="selectHover"
+                [disabled]="selectedMovimiento !== '' && selectedMovimiento !== null">
+                <option value="">-- Seleccionar --</option>
+                <option *ngFor="let item of lstCombos" [value]="item.id">
+                    {{item.nombre}}
+                </option>
+            </select>
+        </div>
     </div>
 
     <div class="fila">

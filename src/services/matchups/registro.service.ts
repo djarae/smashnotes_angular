@@ -74,20 +74,22 @@ export class registroService {
   }
 
 
-  async updateRegistro(id: any, emisor: any, receptor: any, escenario: any, movimiento: any, idPosicion: any, KO: any, rage: any, diFinal: any): Promise<any> {
+  async updateRegistro(id: any, emisor: any, receptor: any, escenario: any, idAtaque: any, tipoAtaque: any, idPosicion: any, KO: any, rage: any, diFinal: any): Promise<any> {
     const rageInt = parseInt(rage);
     console.log("el valor del DI es  ;" + diFinal);
     const obj = {
       "id": id,
       "idPersonajeEmisor": emisor,
       "idPersonajeReceptor": receptor,
-      "idMovimiento": movimiento,
+      "idAtaque": idAtaque,
+      "tipoAtaque": tipoAtaque,
       "idEscenario": escenario,
       "idPosicion": idPosicion,
       "porcentajeKO": KO,
       "rage": rageInt,
       "di": diFinal
     }
+    console.log("objeto antes del update", obj)
     const response = await
       fetch(url_entorno() + '/apiSmash/Registro', {
         method: "PUT",

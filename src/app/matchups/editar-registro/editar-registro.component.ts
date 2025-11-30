@@ -4,6 +4,7 @@ import { personajeService } from '../../../services/matchups/personaje.service';
 import { escenarioService } from '../../../services/matchups/escenario.service';
 import { registroService } from '../../../services/matchups/registro.service';
 import { movimientoService } from 'src/services/matchups/movimiento.service';
+import { comboService } from '../../../services/matchups/combo.service';
 import { posicionService } from '../../../services/matchups/posicion.service';
 //angular material
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -20,12 +21,14 @@ export class EditarRegistroComponent {
   lstPersonajes: any;
   lstEscenarios: any;
   lstMovimientos: any;
+  lstCombos: any;
   lstPosiciones: any;
   //Bindings de los select
 
   selectedPersonajeReceptor: any = 0;  // Variable para almacenar el valor seleccionado
   selectedPersonajeEmisor: any = 0;
-  selectedMovimiento: any = 0;
+  selectedMovimiento: any = '';
+  selectedCombo: any = '';
   selectedPosicion: any = 0;
   selectedEscenario: any = 0;  // Variable para almacenar el valor seleccionado
   textboxRage: any = 0;
@@ -39,6 +42,8 @@ export class EditarRegistroComponent {
   @Input() inputIdPjReceptor!: number;
   @Input() inputIdEscenario!: number;
   @Input() inputIdMovimiento!: number;
+  @Input() inputIdAtaque!: number;
+  @Input() inputIdCombo!: number;
   @Input() inputIdPosicion!: number;
   @Input() inputIdKO!: number;
   @Input() inputRage!: number; // Rage del personaje receptor
@@ -50,11 +55,21 @@ export class EditarRegistroComponent {
     this.lstPersonajes = await new personajeService().getPersonajes();
     this.lstEscenarios = await new escenarioService().getEscenarios();
     this.lstMovimientos = await new movimientoService().getMovimientos();
+    this.lstCombos = await new comboService().getCombos();
     this.lstPosiciones = await new posicionService().getPosiciones();
     this.selectedPersonajeEmisor = this.inputIdPjEmisor;
     this.selectedPersonajeReceptor = this.inputIdPjReceptor;
     this.selectedEscenario = this.inputIdEscenario;
-    this.selectedMovimiento = this.inputIdMovimiento;
+
+    // Logic to set initial selection
+    if (this.inputIdCombo && this.inputIdCombo > 0) {
+      this.selectedCombo = this.inputIdCombo;
+      this.selectedMovimiento = '';
+    } else {
+      this.selectedMovimiento = this.inputIdMovimiento;
+      this.selectedCombo = '';
+    }
+
     this.selectedPosicion = this.inputIdPosicion;
     this.porcentajeKo = this.inputIdKO;
     this.textboxRage = this.inputRage; // Rage del personaje receptor
@@ -65,12 +80,25 @@ export class EditarRegistroComponent {
     let diFinal = false;
     if (this.chkDiOptimo) { diFinal = true; }
     console.log("Receptor ,escenario y porcentaje son: ", this.inputIdRegistro, this.selectedPersonajeEmisor, this.selectedPersonajeReceptor, this.selectedMovimiento, this.selectedEscenario, this.porcentajeKo, this.textboxRage, diFinal);
+    // Determinar idAtaque y tipoAtaque basado en la selección
+    let idAtaque = null;
+    let tipoAtaque = null;
+
+    if (this.selectedMovimiento && this.selectedMovimiento !== '') {
+      idAtaque = this.selectedMovimiento;
+      tipoAtaque = '1'; // Tipo movimiento
+    } else if (this.selectedCombo && this.selectedCombo !== '') {
+      idAtaque = this.selectedCombo;
+      tipoAtaque = '2'; // Tipo combo
+    }
+
     const response = await new registroService().updateRegistro(
       this.inputIdRegistro,
       this.selectedPersonajeEmisor,
       this.selectedPersonajeReceptor,
       this.selectedEscenario,
-      this.selectedMovimiento,
+      idAtaque,
+      tipoAtaque,
       this.selectedPosicion,
       this.porcentajeKo,
       this.textboxRage,
@@ -92,6 +120,18 @@ export class EditarRegistroComponent {
     } else {
       this.chkDiOptimo = false;
       this.chkDiNinguno = true;
+    }
+  }
+
+  onMovimientoChange() {
+    if (this.selectedMovimiento) {
+      this.selectedCombo = '';  // Limpiar combo si se selecciona movimiento
+    }
+  }
+
+  onComboChange() {
+    if (this.selectedCombo) {
+      this.selectedMovimiento = '';  // Limpiar movimiento si se selecciona combo
     }
   }
 
