@@ -62,7 +62,7 @@
           <td class="col-movimiento">
             {{ item.idAtaque > 999 ? item.nombreAtaque : item.abreviaturaAtaque }}
           </td>
-          <td>{{ item.abreviaturaPropiedadAtaque }}</td>
+          <td>{{ item.abreviaturaAtaquePropiedad }}</td>
           <td class="col-rage">{{ item.rage }}%</td>
           <td>{{ item.abreviaturaEscenario }}</td>
           <td>{{ item.abreviaturaPosicion }}</td>
@@ -73,7 +73,7 @@
               <app-editar-registro [inputIdRegistro]="item.id" [inputIdPjEmisor]="item.idPersonajeEmisor"
                 [inputIdPjReceptor]="item.idPersonajeReceptor" [inputIdEscenario]="item.idEscenario"
                 [inputIdMovimiento]="item.idMovimiento" [inputIdAtaque]="item.idAtaque" [inputIdCombo]="item.idCombo"
-                [inputIdPropiedadAtaque]="item.idPropiedadAtaque" [inputIdPosicion]="item.idPosicion"
+                [inputIdAtaquePropiedad]="item.idAtaquePropiedad" [inputIdPosicion]="item.idPosicion"
                 [inputIdKO]="item.porcentajeKO" [inputRage]="item.rage" (actualizarLista)="cargarRegistros()">
               </app-editar-registro>
 

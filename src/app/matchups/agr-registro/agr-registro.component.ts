@@ -79,7 +79,7 @@ export class AgrRegistroComponent {
     console.log("Escenario:", this.selectedEscenario);
     console.log("idAtaque:", idAtaque);
     console.log("tipoAtaque:", tipoAtaque);
-    console.log("idPropiedadAtaque:", this.selectedPropiedadAtaque);
+    console.log("idAtaquePropiedad:", this.selectedPropiedadAtaque);
     console.log("Posicion:", this.selectedPosicion);
     console.log("Porcentaje KO:", this.porcentajeKo);
     console.log("Rage:", this.textboxRage);

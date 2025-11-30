@@ -50,7 +50,7 @@ export class EditarRegistroComponent {
   @Input() inputIdPosicion!: number;
   @Input() inputIdKO!: number;
   @Input() inputRage!: number; // Rage del personaje receptor
-  @Input() inputIdPropiedadAtaque!: number;
+  @Input() inputIdAtaquePropiedad!: number;
   //Actualizar el componente padre
   @Output() actualizarLista = new EventEmitter<void>(); // Emitirá un evento sin datos
   constructor(private snackBar: MatSnackBar) { }
@@ -78,7 +78,7 @@ export class EditarRegistroComponent {
     this.selectedPosicion = this.inputIdPosicion;
     this.porcentajeKo = this.inputIdKO;
     this.textboxRage = this.inputRage; // Rage del personaje receptor
-    this.selectedPropiedadAtaque = this.inputIdPropiedadAtaque;
+    this.selectedPropiedadAtaque = this.inputIdAtaquePropiedad;
   }
 
 

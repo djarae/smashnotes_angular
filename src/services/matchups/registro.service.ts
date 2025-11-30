@@ -40,8 +40,8 @@ export class registroService {
   }
 
 
-  async insertarRegistro(emisor: any, receptor: any, escenario: any, idAtaque: any, tipoAtaque: any, idPropiedadAtaque: any, idPosicion: any, KO: any, rage: any, diFinal: any): Promise<any> {
-    console.log("desde service insertar - idAtaque:", idAtaque, "tipoAtaque:", tipoAtaque, "idPropiedadAtaque:", idPropiedadAtaque);
+  async insertarRegistro(emisor: any, receptor: any, escenario: any, idAtaque: any, tipoAtaque: any, idAtaquePropiedad: any, idPosicion: any, KO: any, rage: any, diFinal: any): Promise<any> {
+    console.log("desde service insertar - idAtaque:", idAtaque, "tipoAtaque:", tipoAtaque, "idAtaquePropiedad:", idAtaquePropiedad);
     //Creamos el json para enviar data
     const obj = {
       "id": 0,
@@ -49,7 +49,7 @@ export class registroService {
       "idPersonajeReceptor": receptor,
       "idAtaque": idAtaque,
       "tipoAtaque": tipoAtaque,
-      "idPropiedadAtaque": idPropiedadAtaque,
+      "idAtaquePropiedad": idAtaquePropiedad,
       "idEscenario": escenario,
       "idPosicion": idPosicion,
       "porcentajeKO": KO,
@@ -75,7 +75,7 @@ export class registroService {
   }
 
 
-  async updateRegistro(id: any, emisor: any, receptor: any, escenario: any, idAtaque: any, tipoAtaque: any, idPropiedadAtaque: any, idPosicion: any, KO: any, rage: any, diFinal: any): Promise<any> {
+  async updateRegistro(id: any, emisor: any, receptor: any, escenario: any, idAtaque: any, tipoAtaque: any, idAtaquePropiedad: any, idPosicion: any, KO: any, rage: any, diFinal: any): Promise<any> {
     const rageInt = parseInt(rage);
     console.log("el valor del DI es  ;" + diFinal);
     const obj = {
@@ -84,7 +84,7 @@ export class registroService {
       "idPersonajeReceptor": receptor,
       "idAtaque": idAtaque,
       "tipoAtaque": tipoAtaque,
-      "idPropiedadAtaque": idPropiedadAtaque,
+      "idAtaquePropiedad": idAtaquePropiedad,
       "idEscenario": escenario,
       "idPosicion": idPosicion,
       "porcentajeKO": KO,
