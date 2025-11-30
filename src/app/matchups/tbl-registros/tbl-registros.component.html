@@ -60,7 +60,7 @@
           <td>{{ item.abreviaturaEmisor }}</td>
           <td>{{ item.abreviaturaReceptor }}</td>
           <td class="col-movimiento">
-            {{ item.idAtaque > 999 ? item.nombreAtaque : item.abreviaturaAtaque }}
+            {{ item.nombreMovimiento || item.nombreCombo }}
           </td>
           <td>{{ item.abreviaturaAtaquePropiedad }}</td>
           <td class="col-rage">{{ item.rage }}%</td>
