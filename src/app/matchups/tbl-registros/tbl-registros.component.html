@@ -21,7 +21,7 @@
         <tr>
           <th scope="col" class="textEncabezado">Emi</th>
           <th scope="col" class="textEncabezado">Rec</th>
-          <th scope="col" class="textEncabezado">Mov</th>
+          <th scope="col" class="textEncabezado">Ataque</th>
           <th scope="col" class="textEncabezado col-rage">Rage</th>
           <th scope="col" class="textEncabezado">Esc</th>
           <th scope="col" class="textEncabezado">Pos</th>
@@ -54,7 +54,7 @@
           <td>{{ item.abreviaturaEmisor }}</td>
           <td>{{ item.abreviaturaReceptor }}</td>
         <td class="col-movimiento">
-  {{ item.idMovimiento > 999 ? item.nombreMovimiento : item.abreviaturaMovimiento }}
+  {{ item.idAtaque > 999 ? item.nombreAtaque : item.abreviaturaAtaque }}
 </td>
           <td class="col-rage">{{ item.rage }}%</td>
           <td>{{ item.abreviaturaEscenario }}</td>
