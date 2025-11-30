@@ -53,7 +53,7 @@ export class registroService {
       "di": diFinal
     };
 
-    //console.log("objeto antes del insert", obj)
+
 
     //Enviamos data
     const response = await

@@ -51,13 +51,9 @@ export class AgrRegistroComponent {
     this.lstCombos = await new comboService().getCombos();
     this.lstPosiciones = await new posicionService().getPosiciones();
     this.lstAtaquePropiedades = await new AtaquePropiedadService().getAtaquePropiedades();
-    console.log("lstCombos cargados:", this.lstCombos);
-    console.log("lstPosiciones cargadas:", this.lstPosiciones);
-    console.log("lstAtaquePropiedades cargadas:", this.lstAtaquePropiedades);
   }
 
   async addNuevoPorcentajeKO() {
-    console.log("Ingresamos a insertar ");
     let diFinal = false;
     if (this.chkDiOptimo) { diFinal = true; }
 
@@ -73,19 +69,6 @@ export class AgrRegistroComponent {
       tipoAtaque = '2'; // Tipo combo
     }
 
-    console.log("=== DATOS A ENVIAR AL BACKEND ===");
-    console.log("Emisor:", this.selectedPersonajeEmisor);
-    console.log("Receptor:", this.selectedPersonajeReceptor);
-    console.log("Escenario:", this.selectedEscenario);
-    console.log("idAtaque:", idAtaque);
-    console.log("tipoAtaque:", tipoAtaque);
-    console.log("idAtaquePropiedad:", this.selectedPropiedadAtaque);
-    console.log("Posicion:", this.selectedPosicion);
-    console.log("Porcentaje KO:", this.porcentajeKo);
-    console.log("Rage:", this.textboxRage);
-    console.log("DI:", diFinal);
-    console.log("=================================");
-
     const response = await new registroService().insertarRegistro(
       this.selectedPersonajeEmisor,
       this.selectedPersonajeReceptor,
@@ -99,11 +82,7 @@ export class AgrRegistroComponent {
       diFinal
     );
 
-    console.log("response body", response);
-    console.log("antes del emit")
     this.actualizarLista.emit(); // Luego, emite el evento para actualizar la tabla
-    console.log("despues del emit")
-    console.log("Response body:", response);
 
     // Muestra un mensaje por 2 segundos
     this.snackBar.open(response, 'Cerrar', {
