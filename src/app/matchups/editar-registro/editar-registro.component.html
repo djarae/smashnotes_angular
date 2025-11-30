@@ -2,14 +2,6 @@
     <div class="botonx">
         <a (click)="myDialog.close()">X</a>
     </div>
-    <!-- <div class="fila">
-        <label>Emisor:</label>
-        <select class="selectHover1" name="miselect" [(ngModel)]="selectPersonaje">
-            <option *ngFor="let item of lstPersonajes">
-                {{item.nombre }}
-            </option>
-        </select>
-    </div> -->
     <div class="fila">
         <label>Emisor :</label>
         <select [(ngModel)]="selectedPersonajeEmisor" class="selectHover2">
@@ -17,7 +9,6 @@
                 {{item.nombre }}
             </option>
         </select>
-        <!-- <p>Selected: {{ selectedPersonaje }}</p> -->
     </div>
     <div class="fila">
         <label>Receptor :</label>
@@ -26,9 +17,7 @@
                 {{item.nombre }}
             </option>
         </select>
-        <!-- <p>Selected: {{ selectedPersonaje }}</p> -->
     </div>
-
 
     <div class="fila">
         <label>Escenario :</label>
@@ -37,14 +26,12 @@
                 {{item.nombre }}
             </option>
         </select>
-        <!-- <p>Selected: {{ selectedEscenario }}</p> -->
     </div>
 
     <div class="div-ataque">
         <div class="select-group">
             <label class="select-label">Movimiento</label>
-            <select [(ngModel)]="selectedMovimiento" (change)="onMovimientoChange()" class="selectHover"
-                [disabled]="selectedCombo !== '' && selectedCombo !== null">
+            <select [(ngModel)]="selectedMovimiento" (change)="onMovimientoChange()" class="selectHover">
                 <option value="">-- Seleccionar --</option>
                 <option *ngFor="let item of lstMovimientos" [value]="item.id">
                     {{item.nombre}}
@@ -54,8 +41,7 @@
 
         <div class="select-group">
             <label class="select-label">Combo</label>
-            <select [(ngModel)]="selectedCombo" (change)="onComboChange()" class="selectHover"
-                [disabled]="selectedMovimiento !== '' && selectedMovimiento !== null">
+            <select [(ngModel)]="selectedCombo" (change)="onComboChange()" class="selectHover">
                 <option value="">-- Seleccionar --</option>
                 <option *ngFor="let item of lstCombos" [value]="item.id">
                     {{item.nombre}}
@@ -67,7 +53,6 @@
     <div class="fila">
         <label>Rage :</label>
         <input [(ngModel)]="textboxRage" type="text" id="txtPorcentajeKo" class="selectHover">
-        <!-- <p>Selected: {{ selectedPersonaje }}</p> -->
     </div>
 
     <div class="fila">
@@ -97,7 +82,6 @@
     <div class="fila">
         <label>Porcentaje :</label>
         <input [(ngModel)]="porcentajeKo" type="text" id="txtPorcentajeKo" class="selectHover">
-        <!-- <p>ko: {{ porcentajeKo }}</p> -->
     </div>
     <div class="boton ">
         <a (click)="updatePorcentajeKO()"> EDITAR </a>

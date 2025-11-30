@@ -1,0 +1,143 @@
+Porcentajes a sacar:
+
+UpAir Ivy:
+ PS2  	 Escenario     Sin Rage Buen Di
+ Ps2 	 Plataforma 1  Sin Rage Buen Di
+ BF   	 Escenario     Sin Rage Buen Di
+ BF  	 Plataforma 1  Sin Rage Buen Di
+ Town    Escenario     Sin Rage Buen Di
+ Town  	 Plataforma 1  Sin Rage Buen Di	
+ PS2  	 Escenario     Con Rage 100% Buen Di
+ Ps2 	 Plataforma 1  Con Rage 100% Buen Di
+ BF   	 Escenario     Con Rage 100% Buen Di
+ BF  	 Plataforma 1  Con Rage 100% Buen Di
+ Town    Escenario     Con Rage 100% Buen Di
+ Town  	 Plataforma 1  Con Rage 100% Buen Di
+ PS2  	 Escenario     Con Rage 150% Buen Di
+ Ps2 	 Plataforma 1  Con Rage 150% Buen Di
+ BF   	 Escenario     Con Rage 150% 150% Buen Di
+ BF  	 Plataforma 1  Con Rage 150% Buen Di
+ Town    Escenario     Con Rage 150% Buen Di
+ Town  	 Plataforma 1  Con Rage 150% Buen Di
+
+UpGrab Zard:
+ PS2  	 Escenario     Sin Rage Buen Di
+ Ps2 	 Plataforma 1  Sin Rage Buen Di
+ BF   	 Escenario     Sin Rage Buen Di
+ BF  	 Plataforma 1  Sin Rage Buen Di
+ Town    Escenario     Sin Rage Buen Di
+ Town  	 Plataforma 1  Sin Rage Buen Di
+ PS2  	 Escenario     Con Rage 150% Buen Di
+ Ps2 	 Plataforma 1  Con Rage 150% Buen Di
+ BF   	 Escenario     Con Rage 150% 150% Buen Di
+ BF  	 Plataforma 1  Con Rage 150% Buen Di
+ Town    Escenario     Con Rage 150% Buen Di
+ Town  	 Plataforma 1  Con Rage 150% Buen Di
+ PS2  	 Escenario     Con Rage 150% Buen Di
+ Ps2 	 Plataforma 1  Con Rage 150% Buen Di
+ BF   	 Escenario     Con Rage 150% 150% Buen Di
+ BF  	 Plataforma 1  Con Rage 150% Buen Di
+ Town    Escenario     Con Rage 150% Buen Di
+ Town  	 Plataforma 1  Con Rage 150% Buen Di
+ 
+Para CADA pj (Asi hacemos analitica)
+
+¿Por que lo anterior? :
+ 1-Son "contextos" REALES que pueden ocurrir
+ 2-Son los "Máximos" y "Minimos" e "Intermedios" reales útiles
+ 3-Segun el pj rival, terminaremos jugando en los 3 tipos de techo.(EJ: baneamos fd vs Luigi y kazuya , baneamos bf vs Mario y fox)
+
+Pero hacer todo "de una" es inf3rnal ,por ende hay que hacerlo por ciclos:
+ -Excluimos el "rage 100%" y "Techo Town" eso nos dejara con "Maximos y Minimos" realistas.
+ -NO excluimos la "plataforma" eso es información super útil:
+
+UpAir Ivy:
+ PS2  	 Escenario     Sin Rage Buen Di
+ Ps2 	 Plataforma 1  Sin Rage Buen Di
+ BF   	 Escenario     Sin Rage Buen Di
+ BF  	 Plataforma 1  Sin Rage Buen Di
+ PS2  	 Escenario     Con Rage 150% Buen Di
+ Ps2 	 Plataforma 1  Con Rage 150% Buen Di
+ BF   	 Escenario     Con Rage 150% Buen Di
+ BF  	 Plataforma 1  Con Rage 150% Buen Di
+ 
+UpGrab Zard:
+ PS2  	 Escenario     Sin Rage Buen Di
+ Ps2 	 Plataforma 1  Sin Rage Buen Di
+ BF   	 Escenario     Sin Rage Buen Di
+ BF  	 Plataforma 1  Sin Rage Buen Di
+ PS2  	 Escenario     Con Rage 150% Buen Di
+ Ps2 	 Plataforma 1  Con Rage 150% Buen Di
+ BF   	 Escenario     Con Rage 150% Buen Di
+ BF  	 Plataforma 1  Con Rage 150% Buen Di
+ 
+Esto nos deja con "16 porcentajes por personaje" tal vez es viable...o tal vez ,debería partir con uno y skipear el otro...
+
+"Realista" : (explicación mas abajo del porque)
+UpAir Ivy:
+ PS2  	 Escenario     Sin Rage Buen Di
+ BF 	 Escenario     Sin Rage Buen Di
+ 
+UpGrab Zard:
+ PS2  	 Escenario     Sin Rage Buen Di
+ PS2  	 Escenario     Con Rage 150% Buen Di
+ BF  	 Plataforma 1  Sin Rage Buen Di
+ BF  	 Plataforma 1  Con Rage 150% Buen Di
+
+Ftilt Squirtle Tumbling
+
+Estos "7 contextos" son los mas comunes;
+	- El Upair de ivy puede pegar desde el piso si bajo desde una plataforma con ello de forma tricky.Muchas veces NO tendremos RAGE y si tenemos usaremos ZARD
+	- El Upgrab de ZARD muchas veces pegara fuera de plataforma en ps2
+
+Son 602 registros(86x7)
+
+Simplificación aun mas :
+"No siempre tendremos 150% rage, pero a veces necesitaremos cambiar a zard de todas formas para evitar atoramientos:"
+UpAir Ivy:
+ PS2  	 Escenario     Sin Rage Buen Di
+ BF 	 Escenario     Sin Rage Buen Di
+ 
+UpGrab Zard:
+ PS2  	 Escenario     Sin Rage Buen Di
+ BF  	 Plataforma 1  Sin Rage Buen Di
+
+Ftilt Squirtle Tumbling
+
+Estos 5 contextos son "pilares de la estrategia y excelentes puntos de partida realistas"
+
+
+
+
+******************************************************************************************************************************************************************
+REFLEXION DESORDENADA:
+
+Siguiente:
+	Calcualr los 7 contextos de pichu y tomar el tiempo que me tardé...el tiempo ttoal será eso multipicado por 86.
+ Son 602 registros, información útil para jugar … y tomara mucho tiempo registrarlo
+ Realísticamente estos 7 son útiles
+
+Si me demoro un 2 minutos por personaje, el calculo total serian 3 HORAS :O.
+Un montón... 1 hora por semana serian a priori 3 semanas.
+PERO DE VERDAD quiero hacerlo saco esto y lo uso altoque
+
+Otra opción: Es calcular mas data, pero en menos pjs y aproximar...por terciles,quintiles o octatiles.
+
+En realidad... si sigo asi no hare NADA estoy abarcando mucho
+
+Lo único útil a memorizar:
+ Tabla de pesos de personajes
+
+
+Los terciles son recordables
+Los quintiles... tal vez
+Los octatiles uff difícil
+
+Tal vez debería darle no mas con terciles…
+
+Pero hacer esos 7 , es un sacrificio, uno bastante útil , tengo todos los min y max...ya solo por esta vez me tengo que poner las pilas y darle, intentarlo
+
+Ya después seria aprenderme los MU y 
+
+
+
