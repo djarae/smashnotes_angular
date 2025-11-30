@@ -51,6 +51,16 @@
     </div>
 
     <div class="fila">
+        <label>Atk Prop :</label>
+        <select [(ngModel)]="selectedPropiedadAtaque" class="selectHover">
+            <option value="">-- Seleccionar --</option>
+            <option *ngFor="let item of lstAtaquePropiedades" [value]="item.id">
+                {{item.nombre}} ({{item.abreviatura}})
+            </option>
+        </select>
+    </div>
+
+    <div class="fila">
         <label>Rage :</label>
         <input [(ngModel)]="textboxRage" type="text" id="txtPorcentajeKo" class="selectHover">
     </div>

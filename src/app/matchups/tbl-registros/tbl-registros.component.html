@@ -8,6 +8,7 @@
         <col> <!-- Emisor -->
         <col> <!-- Receptor -->
         <col> <!-- Mov -->
+        <col> <!-- Prop -->
         <col style="width:50px;"> <!-- Rage -->
         <col> <!-- Escenario -->
         <col> <!-- Posicion -->
@@ -22,6 +23,7 @@
           <th scope="col" class="textEncabezado">Emi</th>
           <th scope="col" class="textEncabezado">Rec</th>
           <th scope="col" class="textEncabezado">Ataque</th>
+          <th scope="col" class="textEncabezado">Prop</th>
           <th scope="col" class="textEncabezado col-rage">Rage</th>
           <th scope="col" class="textEncabezado">Esc</th>
           <th scope="col" class="textEncabezado">Pos</th>
@@ -41,6 +43,7 @@
           <td><input [(ngModel)]="filtroReceptor" (ngModelChange)="cargarRegistros()" type="text" class="txtListado">
           </td>
           <td><input [(ngModel)]="filtroMov" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
+          <td></td>
           <td class="col-rage"><input [(ngModel)]="filtroRage" (ngModelChange)="cargarRegistros()" type="text"
               class="txtListado"></td>
           <td><input [(ngModel)]="filtroStage" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
@@ -59,6 +62,7 @@
           <td class="col-movimiento">
             {{ item.idAtaque > 999 ? item.nombreAtaque : item.abreviaturaAtaque }}
           </td>
+          <td>{{ item.abreviaturaPropiedadAtaque }}</td>
           <td class="col-rage">{{ item.rage }}%</td>
           <td>{{ item.abreviaturaEscenario }}</td>
           <td>{{ item.abreviaturaPosicion }}</td>
@@ -69,8 +73,8 @@
               <app-editar-registro [inputIdRegistro]="item.id" [inputIdPjEmisor]="item.idPersonajeEmisor"
                 [inputIdPjReceptor]="item.idPersonajeReceptor" [inputIdEscenario]="item.idEscenario"
                 [inputIdMovimiento]="item.idMovimiento" [inputIdAtaque]="item.idAtaque" [inputIdCombo]="item.idCombo"
-                [inputIdPosicion]="item.idPosicion" [inputIdKO]="item.porcentajeKO" [inputRage]="item.rage"
-                (actualizarLista)="cargarRegistros()">
+                [inputIdPropiedadAtaque]="item.idPropiedadAtaque" [inputIdPosicion]="item.idPosicion"
+                [inputIdKO]="item.porcentajeKO" [inputRage]="item.rage" (actualizarLista)="cargarRegistros()">
               </app-editar-registro>
 
               <app-eliminar-registro [inputIdRegistro]="item.id" (actualizarLista)="cargarRegistros()">

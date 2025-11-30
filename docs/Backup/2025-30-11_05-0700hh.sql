@@ -632,7 +632,7 @@ COPY public.posicion (id, nombre, vertical_horizontal, abreviatura) FROM stdin;
 -- Data for Name: registro; Type: TABLE DATA; Schema: public; Owner: neondb_owner
 --
 
-COPY public.registro (id, id_personaje_emisor, id_personaje_receptor, id_escenario, id_posicion, rage, di, porcentaje_ko, id_ataque, id_propiedad_ataque) FROM stdin;
+COPY public.registro (id, id_personaje_emisor, id_personaje_receptor, id_escenario, id_posicion, rage, di, porcentaje_ko, id_ataque, id_ataque_propiedad) FROM stdin;
 1	35	63	1	1	0	t	105	16	2
 2	35	36	1	1	0	t	111	16	2
 3	35	73	1	1	0	t	122	16	2
