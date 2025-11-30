@@ -1,1 +1,0 @@
-# public static String  url="jdbc:postgresql://localhost:5432/postgres"; public static String user="postgres"; public static String password="mipostgre345";
