@@ -7,6 +7,7 @@ import { comboService } from '../../../services/matchups/combo.service';
 import { posicionService } from '../../../services/matchups/posicion.service';
 import { registroService } from '../../../services/matchups/registro.service';
 import { AtaquePropiedadService } from '../../../services/matchups/ataque-propiedad.service';
+import { ataqueService } from '../../../services/matchups/ataque.service';
 
 
 //angular material
@@ -25,6 +26,7 @@ export class AgrRegistroComponent {
   lstCombos: any;
   lstPosiciones: any;
   lstAtaquePropiedades: any;
+  lstAtaques: any;
 
   selectedPersonajeReceptor: any = 0;  // Variable para almacenar el valor seleccionado
   selectedPersonajeEmisor: any = 0;
@@ -51,6 +53,16 @@ export class AgrRegistroComponent {
     this.lstCombos = await new comboService().getCombos();
     this.lstPosiciones = await new posicionService().getPosiciones();
     this.lstAtaquePropiedades = await new AtaquePropiedadService().getAtaquePropiedades();
+    this.lstAtaques = await new ataqueService().getAtaques();
+
+    console.log("=== ATAQUES ===");
+    console.log(this.lstAtaques);
+    console.log("=== MOVIMIENTOS ===");
+    console.log(this.lstMovimientos);
+    console.log("=== COMBOS ===");
+    console.log(this.lstCombos);
+    console.log("=== POSICIONES ===");
+    console.log(this.lstPosiciones);
   }
 
   async addNuevoPorcentajeKO() {
