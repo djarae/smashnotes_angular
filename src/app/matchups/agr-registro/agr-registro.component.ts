@@ -122,9 +122,9 @@ export class AgrRegistroComponent {
       this.selectedCombo = '';  // Limpiar combo si se selecciona movimiento
       console.log("Movimiento Seleccionado ID: ", this.selectedMovimiento);
 
-      const movimientoSeleccionado = this.lstMovimientos.find((m: any) => m.id == this.selectedMovimiento);
-      if (movimientoSeleccionado) {
-        console.log("Ataque ID asociado (Movimiento): ", movimientoSeleccionado.id_ataque);
+      const ataqueSeleccionado = this.lstAtaques.find((a: any) => a.idMovimiento && a.idMovimiento.id == this.selectedMovimiento);
+      if (ataqueSeleccionado) {
+        console.log("Ataque ID asociado (Movimiento): ", ataqueSeleccionado.id);
       }
     }
   }
@@ -134,9 +134,9 @@ export class AgrRegistroComponent {
       this.selectedMovimiento = '';  // Limpiar movimiento si se selecciona combo
       console.log("Combo Seleccionado ID: ", this.selectedCombo);
 
-      const comboSeleccionado = this.lstCombos.find((c: any) => c.id == this.selectedCombo);
-      if (comboSeleccionado) {
-        console.log("Ataque ID asociado (Combo): ", comboSeleccionado.id_ataque);
+      const ataqueSeleccionado = this.lstAtaques.find((a: any) => a.idCombo && a.idCombo.id == this.selectedCombo);
+      if (ataqueSeleccionado) {
+        console.log("Ataque ID asociado (Combo): ", ataqueSeleccionado.id);
       }
     }
   }
