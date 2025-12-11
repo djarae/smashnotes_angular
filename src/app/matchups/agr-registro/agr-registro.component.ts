@@ -125,6 +125,7 @@ export class AgrRegistroComponent {
       const ataqueSeleccionado = this.lstAtaques.find((a: any) => a.idMovimiento && a.idMovimiento.id == this.selectedMovimiento);
       if (ataqueSeleccionado) {
         console.log("Ataque ID asociado (Movimiento): ", ataqueSeleccionado.id);
+        console.log("Eje Ataque: ", ataqueSeleccionado.eje);
       }
     }
   }
@@ -137,6 +138,7 @@ export class AgrRegistroComponent {
       const ataqueSeleccionado = this.lstAtaques.find((a: any) => a.idCombo && a.idCombo.id == this.selectedCombo);
       if (ataqueSeleccionado) {
         console.log("Ataque ID asociado (Combo): ", ataqueSeleccionado.id);
+        console.log("Eje Ataque: ", ataqueSeleccionado.eje);
       }
     }
   }
