@@ -63,6 +63,9 @@ export class AgrRegistroComponent {
     console.log(this.lstCombos);
     console.log("=== POSICIONES ===");
     console.log(this.lstPosiciones);
+
+
+
   }
 
   async addNuevoPorcentajeKO() {
@@ -117,12 +120,14 @@ export class AgrRegistroComponent {
   onMovimientoChange() {
     if (this.selectedMovimiento) {
       this.selectedCombo = '';  // Limpiar combo si se selecciona movimiento
+      console.log("Movimiento Seleccionado ID: ", this.selectedMovimiento);
     }
   }
 
   onComboChange() {
     if (this.selectedCombo) {
       this.selectedMovimiento = '';  // Limpiar movimiento si se selecciona combo
+      console.log("Combo Seleccionado ID: ", this.selectedCombo);
     }
   }
 }
