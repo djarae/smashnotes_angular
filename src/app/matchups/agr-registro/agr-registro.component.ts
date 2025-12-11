@@ -25,6 +25,7 @@ export class AgrRegistroComponent {
   lstMovimientos: any;
   lstCombos: any;
   lstPosiciones: any;
+  lstPosicionesCompleto: any;
   lstAtaquePropiedades: any;
   lstAtaques: any;
 
@@ -51,7 +52,8 @@ export class AgrRegistroComponent {
     this.lstEscenarios = await new escenarioService().getEscenarios();
     this.lstMovimientos = await new movimientoService().getMovimientos();
     this.lstCombos = await new comboService().getCombos();
-    this.lstPosiciones = await new posicionService().getPosiciones();
+    this.lstPosicionesCompleto = await new posicionService().getPosiciones();
+    this.lstPosiciones = this.lstPosicionesCompleto;
     this.lstAtaquePropiedades = await new AtaquePropiedadService().getAtaquePropiedades();
     this.lstAtaques = await new ataqueService().getAtaques();
 
@@ -126,7 +128,20 @@ export class AgrRegistroComponent {
       if (ataqueSeleccionado) {
         console.log("Ataque ID asociado (Movimiento): ", ataqueSeleccionado.id);
         console.log("Eje Ataque: ", ataqueSeleccionado.eje);
+
+        // Filter positions based on axis
+        if (ataqueSeleccionado.eje) {
+          this.lstPosiciones = this.lstPosicionesCompleto.filter((p: any) => p.eje === ataqueSeleccionado.eje);
+          // Optional: Reset selected position if it's not in the filtered list
+          // this.selectedPosicion = this.lstPosiciones.length > 0 ? this.lstPosiciones[0].id : null; 
+        } else {
+          // If no axis, maybe show all?
+          this.lstPosiciones = this.lstPosicionesCompleto;
+        }
       }
+    } else {
+      // Reset if no movement selected
+      this.lstPosiciones = this.lstPosicionesCompleto;
     }
   }
 
@@ -139,7 +154,17 @@ export class AgrRegistroComponent {
       if (ataqueSeleccionado) {
         console.log("Ataque ID asociado (Combo): ", ataqueSeleccionado.id);
         console.log("Eje Ataque: ", ataqueSeleccionado.eje);
+
+        // Filter positions based on axis
+        if (ataqueSeleccionado.eje) {
+          this.lstPosiciones = this.lstPosicionesCompleto.filter((p: any) => p.eje === ataqueSeleccionado.eje);
+        } else {
+          this.lstPosiciones = this.lstPosicionesCompleto;
+        }
+
       }
+    } else {
+      this.lstPosiciones = this.lstPosicionesCompleto;
     }
   }
 }
