@@ -127,20 +127,7 @@ button:first-child {
         justify-content: center;
     }
 
-    .fila {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-    }
-
-    .fila label {
-        margin-bottom: 2px;
-    }
-
-    .fila select,
-    .fila input[type="text"] {
-        width: 100%;
-    }
+    /* .fila reverted to row layout by removing overrides */
 
     .div-ataque {
         flex-direction: column;
