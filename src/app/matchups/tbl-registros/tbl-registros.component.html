@@ -20,14 +20,36 @@
 
       <thead>
         <tr>
-          <th scope="col" class="textEncabezado">Emi</th>
-          <th scope="col" class="textEncabezado">Rec</th>
-          <th scope="col" class="textEncabezado">Ataque</th>
-          <th scope="col" class="textEncabezado">Prop</th>
-          <th scope="col" class="textEncabezado col-rage">Rage</th>
-          <th scope="col" class="textEncabezado">Esc</th>
-          <th scope="col" class="textEncabezado">Pos</th>
-          <th scope="col" class="textEncabezado">DI</th>
+          <!-- Desktop Headers -->
+          <th scope="col" class="textEncabezado desktop-only">Emi</th>
+          <th scope="col" class="textEncabezado desktop-only">Rec</th>
+
+          <!-- Mobile Header: Emi/Rec -->
+          <th scope="col" class="textEncabezado mobile-only">Emi<br>Rec</th>
+
+          <!-- Desktop Headers: Ataque / Prop -->
+          <th scope="col" class="textEncabezado desktop-only">Ataque</th>
+          <th scope="col" class="textEncabezado desktop-only">Prop</th>
+
+          <!-- Mobile Header: Ataque / Prop -->
+          <th scope="col" class="textEncabezado mobile-only">Ataque<br>/Propiedad</th>
+
+          <!-- Desktop Header: Rage -->
+          <th scope="col" class="textEncabezado col-rage desktop-only">Rage</th>
+
+          <!-- Mobile Header: Rage / DI -->
+          <th scope="col" class="textEncabezado mobile-only">Rage<br>/DI</th>
+
+          <!-- Desktop Headers: Esc / Pos -->
+          <th scope="col" class="textEncabezado desktop-only">Esc</th>
+          <th scope="col" class="textEncabezado desktop-only">Pos</th>
+
+          <!-- Mobile Header: Esc / Pos -->
+          <th scope="col" class="textEncabezado mobile-only">Escenario<br>/Nombre</th>
+
+          <!-- Desktop Header: DI -->
+          <th scope="col" class="textEncabezado desktop-only">DI</th>
+
           <th scope="col" class="textEncabezado col-ko">KO%</th>
           <th scope="col" class="textEncabezado">Acciones</th>
           <th scope="col" class="textEncabezado"></th>
@@ -37,19 +59,66 @@
       </thead>
 
       <tbody>
-        <tr>
-
-          <td><input [(ngModel)]="filtroEmisor" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
-          <td><input [(ngModel)]="filtroReceptor" (ngModelChange)="cargarRegistros()" type="text" class="txtListado">
-          </td>
-          <td><input [(ngModel)]="filtroMov" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
-          <td></td>
-          <td class="col-rage"><input [(ngModel)]="filtroRage" (ngModelChange)="cargarRegistros()" type="text"
+        <tr class="inputs-row">
+          <!-- Desktop Filters -->
+          <td class="desktop-only"><input [(ngModel)]="filtroEmisor" (ngModelChange)="cargarRegistros()" type="text"
               class="txtListado"></td>
-          <td><input [(ngModel)]="filtroStage" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"></td>
-          <td><input [(ngModel)]="filtroPosicion" (ngModelChange)="cargarRegistros()" type="text" class="txtListado">
+          <td class="desktop-only"><input [(ngModel)]="filtroReceptor" (ngModelChange)="cargarRegistros()" type="text"
+              class="txtListado"></td>
+
+          <!-- Mobile Filter: Emi/Rec -->
+          <td class="mobile-only">
+            <div class="stacked-cell">
+              <input [(ngModel)]="filtroEmisor" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"
+                placeholder="Emi">
+              <input [(ngModel)]="filtroReceptor" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"
+                placeholder="Rec">
+            </div>
           </td>
-          <td></td>
+
+          <!-- Desktop Filters: Mov / Prop (Empty) -->
+          <td class="desktop-only"><input [(ngModel)]="filtroMov" (ngModelChange)="cargarRegistros()" type="text"
+              class="txtListado"></td>
+          <td class="desktop-only"></td>
+
+          <!-- Mobile Filter: Mov / Prop -->
+          <td class="mobile-only">
+            <div class="stacked-cell">
+              <input [(ngModel)]="filtroMov" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"
+                placeholder="Atk">
+            </div>
+          </td>
+
+          <!-- Desktop Filter: Rage -->
+          <td class="col-rage desktop-only"><input [(ngModel)]="filtroRage" (ngModelChange)="cargarRegistros()"
+              type="text" class="txtListado"></td>
+
+          <!-- Mobile Filter: Rage / DI -->
+          <td class="mobile-only">
+            <div class="stacked-cell">
+              <input [(ngModel)]="filtroRage" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"
+                placeholder="Rage">
+            </div>
+          </td>
+
+          <!-- Desktop Filters: Stage / Pos -->
+          <td class="desktop-only"><input [(ngModel)]="filtroStage" (ngModelChange)="cargarRegistros()" type="text"
+              class="txtListado"></td>
+          <td class="desktop-only"><input [(ngModel)]="filtroPosicion" (ngModelChange)="cargarRegistros()" type="text"
+              class="txtListado"></td>
+
+          <!-- Mobile Filter: Stage / Pos -->
+          <td class="mobile-only">
+            <div class="stacked-cell">
+              <input [(ngModel)]="filtroStage" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"
+                placeholder="Esc">
+              <input [(ngModel)]="filtroPosicion" (ngModelChange)="cargarRegistros()" type="text" class="txtListado"
+                placeholder="Pos">
+            </div>
+          </td>
+
+          <!-- Desktop Filter: DI (Empty) -->
+          <td class="desktop-only"></td>
           <td class="col-ko"><input type="text" class="txtListado"></td>
           <td></td>
           <td></td>
@@ -57,17 +126,59 @@
         </tr>
 
         <tr *ngFor="let item of LstRegistros">
-          <td>{{ item.abreviaturaEmisor }}</td>
-          <td>{{ item.abreviaturaReceptor }}</td>
-          <td class="col-movimiento">
+          <!-- Desktop Data -->
+          <td class="desktop-only">{{ item.abreviaturaEmisor }}</td>
+          <td class="desktop-only">{{ item.abreviaturaReceptor }}</td>
+
+          <!-- Mobile Data: Emi / Rec -->
+          <td class="mobile-only">
+            <div class="stacked-cell">
+              <div class="mobile-bold">{{ item.abreviaturaEmisor }}</div>
+              <div class="arrow-down">↓</div>
+              <div class="mobile-bold">{{ item.abreviaturaReceptor }}</div>
+            </div>
+          </td>
+
+          <!-- Desktop Data -->
+          <td class="col-movimiento desktop-only">
             {{ item.nombreMovimiento || item.nombreCombo }}
           </td>
-          <td>{{ item.abreviaturaAtaquePropiedad }}</td>
-          <td class="col-rage">{{ item.rage }}%</td>
-          <td>{{ item.abreviaturaEscenario }}</td>
-          <td>{{ item.abreviaturaPosicion }}</td>
-          <td>{{ item.di ? 't' : 'f' }}</td>
-          <td class="col-ko">{{ item.porcentajeKO }}%</td>
+          <td class="desktop-only">{{ item.abreviaturaAtaquePropiedad }}</td>
+
+          <!-- Mobile Data: Ataque / Prop -->
+          <td class="mobile-only">
+            <div class="stacked-cell">
+              <div class="col-movimiento mobile-bold">{{ item.nombreMovimiento || item.nombreCombo }}</div>
+              <div class="mobile-subtext">{{ item.abreviaturaAtaquePropiedad }}</div>
+            </div>
+          </td>
+
+          <!-- Desktop Data: Rage -->
+          <td class="col-rage desktop-only">{{ item.rage }}%</td>
+
+          <!-- Mobile Data: Rage / DI -->
+          <td class="mobile-only">
+            <div class="stacked-cell">
+              <div class="mobile-bold">{{ item.rage }}%</div>
+              <div class="mobile-bold">{{ item.di ? 't' : 'f' }}</div>
+            </div>
+          </td>
+
+          <!-- Desktop Data -->
+          <td class="desktop-only">{{ item.abreviaturaEscenario }}</td>
+          <td class="desktop-only">{{ item.abreviaturaPosicion }}</td>
+
+          <!-- Mobile Data: Esc / Pos -->
+          <td class="mobile-only">
+            <div class="stacked-cell">
+              <div class="mobile-bold">{{ item.abreviaturaEscenario }}</div>
+              <div class="mobile-subtext">{{ item.abreviaturaPosicion }}</div>
+            </div>
+          </td>
+
+          <!-- Desktop Data: DI -->
+          <td class="mobile-bold desktop-only">{{ item.di ? 't' : 'f' }}</td>
+          <td class="col-ko mobile-bold">{{ item.porcentajeKO }}%</td>
           <td>
             <div class="action-buttons">
               <app-editar-registro [inputIdRegistro]="item.id" [inputIdPjEmisor]="item.idPersonajeEmisor"

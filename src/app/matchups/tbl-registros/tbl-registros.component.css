@@ -1,25 +1,33 @@
 /* Global Styles */
 .col-movimiento {
-  width: 65px;       /* ancho fijo, ajusta según necesites */
-  word-wrap: break-word; /* permite que las palabras largas se rompan */
-  white-space: normal;   /* permite saltos de línea */
+  width: 65px;
+  /* ancho fijo, ajusta según necesites */
+  word-wrap: break-word;
+  /* permite que las palabras largas se rompan */
+  white-space: normal;
+  /* permite saltos de línea */
   text-align: center;
-display: block
+  display: block
 }
 
 
-html, body { height: 100%; }
-body { 
-  margin: 0; 
-  font-family: Roboto, "Helvetica Neue", sans-serif; 
-  background-color: black; 
-  color: #ffffff; 
-  padding: 20px; 
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: black;
+  color: #ffffff;
+  padding: 20px;
   text-align: center;
 }
 
 .txtListado {
-  width: 70px; /* o cualquier valor que necesites */
+  width: 70px;
+  /* o cualquier valor que necesites */
 }
 
 
@@ -27,10 +35,12 @@ body {
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* 💥 Permite que la tabla se mueva */
+  justify-content: flex-start;
+  /* 💥 Permite que la tabla se mueva */
   align-items: center;
   min-height: 100vh;
-  padding-top: 150px; /* 👈 Baja la tabla cómodamente */
+  padding-top: 150px;
+  /* 👈 Baja la tabla cómodamente */
 }
 
 :host ::ng-deep .table {
@@ -39,18 +49,19 @@ body {
 
 
 @media screen and (max-width: 830px) {
-.content {
-  justify-content: left;
-margin-top: 40px;
-margin-left: 0;
-position: relative;
-left: -1px; /* Mueve la tabla 50px a la izquierda */
+  .content {
+    justify-content: left;
+    margin-top: 40px;
+    margin-left: 0;
+    position: relative;
+    left: -1px;
+    /* Mueve la tabla 50px a la izquierda */
 
+  }
 }
-}
 
 
- 
+
 
 
 
@@ -65,9 +76,21 @@ left: -1px; /* Mueve la tabla 50px a la izquierda */
   overflow: hidden;
   box-shadow: 0px 4px 10px rgba(255, 193, 7, 0.3);
 }
-.table thead { background-color: black; color: white; }
-.table th, .table td { padding: 10px; text-align: left; }
-.table th { font-size: 16px; }
+
+.table thead {
+  background-color: black;
+  color: white;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.table th {
+  font-size: 16px;
+}
 
 /* Inputs Rage y KO */
 .table td.col-rage input,
@@ -82,25 +105,63 @@ left: -1px; /* Mueve la tabla 50px a la izquierda */
 }
 
 /* Columnas angostas */
-.table th.col-id, .table td.col-id { width: 30px !important; max-width: 30px; padding: 0 4px; text-align: center; white-space: nowrap; }
-.col-rage, .col-ko { text-align: center; padding: 0 !important; white-space: nowrap; }
-.col-id { text-align: right; padding: 0 !important; white-space: nowrap; }
+.table th.col-id,
+.table td.col-id {
+  width: 30px !important;
+  max-width: 30px;
+  padding: 0 4px;
+  text-align: center;
+  white-space: nowrap;
+}
 
-.table th.col-ko, .table td.col-ko { width: 40px !important; max-width: 40px; padding: 0 4px; text-align: center; white-space: nowrap; }
+.col-rage,
+.col-ko {
+  text-align: center;
+  padding: 0 !important;
+  white-space: nowrap;
+}
+
+.col-id {
+  text-align: right;
+  padding: 0 !important;
+  white-space: nowrap;
+}
+
+.table th.col-ko,
+.table td.col-ko {
+  width: 40px !important;
+  max-width: 40px;
+  padding: 0 4px;
+  text-align: center;
+  white-space: nowrap;
+}
 
 /* Headers */
-.textEncabezado { font-weight: bold; color: #ffb300; }
+.textEncabezado {
+  font-weight: bold;
+  color: #ffb300;
+}
 
 /* Table Body */
-.table tbody tr { border-bottom: 1px solid #444; }
-.table tbody tr:nth-child(even) { background-color: rgba(255, 193, 7, 0.1); }
-.table tbody tr:hover { background-color: rgba(255, 193, 7, 0.3); transition: background 0.3s; }
+.table tbody tr {
+  border-bottom: 1px solid #444;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.table tbody tr:hover {
+  background-color: rgba(255, 193, 7, 0.3);
+  transition: background 0.3s;
+}
 
 /* Botones pegados */
 .action-buttons {
   display: flex;
   justify-content: center;
-  gap: 5px; /* Ajusta la distancia entre los botones */
+  gap: 5px;
+  /* Ajusta la distancia entre los botones */
 }
 
 /* Botones Estilo */
@@ -113,34 +174,75 @@ left: -1px; /* Mueve la tabla 50px a la izquierda */
   transition: background 0.3s;
   box-shadow: 0px 4px 10px rgba(255, 193, 7, 0.3);
 }
-.boton:hover { background-color: rgba(255, 193, 7, 0.3); }
 
-.col-base{
-  width: 100%;;
+.boton:hover {
+  background-color: rgba(255, 193, 7, 0.3);
+}
+
+.col-base {
+  width: 100%;
+  ;
 }
 
 
 @media screen and (max-width: 800px) {
   .table {
-     padding: 1px !important; /* forzar que se aplique */
+    padding: 1px !important;
+    /* forzar que se aplique */
   }
-  
+
   /* Opcional: si quieres que solo los textos dentro de celdas sean rojos */
-  .table th, .table td {
-    color: green;
-    padding: 1px !important; /* forzar que se aplique */
+  .table th,
+  .table td {
+    padding: 1px !important;
+    /* forzar que se aplique */
   }
-.txtListado {
-  width: 30px; /* o cualquier valor que necesites */
+
+  .txtListado {
+    width: 30px;
+    /* o cualquier valor que necesites */
+  }
+
+  .col-base {
+    width: 100%;
+  }
+
+  /* Mobile/Desktop Visibility Toggles */
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: table-cell !important;
+  }
+
+  /* Stacked Cell Styling */
+  .stacked-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .stacked-cell .arrow-down {
+    font-size: 1.2em;
+    line-height: 0.8;
+  }
+
+  .mobile-subtext {
+    font-size: 0.85em;
+    /* Smaller font text */
+    opacity: 0.9;
+    /* Slightly reduced visual weight */
+  }
+
+  .mobile-bold {
+    font-weight: bold;
+  }
 }
 
-
-.col-base{
-  width: 100%;;
+/* Default (Desktop) Styles */
+.mobile-only {
+  display: none;
 }
-
- 
-
-}
-
-
