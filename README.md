@@ -1,3 +1,5 @@
+# Leer docs/tickets.md para informaicon de futuros tickets
+
 # 20-9-25  23:50 hh
 ¡Ping recibido! ✅
 
