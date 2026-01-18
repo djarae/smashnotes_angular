@@ -1,1 +1,10 @@
-<p>authentication works!</p>
+<!-- Si está autenticado, mostrar info del usuario y botón de logout -->
+<div *ngIf="isAuthenticated" class="user-info">
+    <span class="user-email">👤 {{ userEmail }}</span>
+    <button class="logout-btn" (click)="logout()">Cerrar Sesión</button>
+</div>
+
+<!-- Si no está autenticado, mostrar formulario de login -->
+<div *ngIf="!isAuthenticated">
+    <app-login></app-login>
+</div>

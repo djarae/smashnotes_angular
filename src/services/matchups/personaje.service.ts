@@ -1,10 +1,16 @@
 import { url_entorno } from '../../configs/url_entorno';
+import { authService } from '../authentication/auth.service';
 
 export class personajeService {
   async getPersonajes(): Promise<any> {
-    const response = await fetch(url_entorno() + '/apiSmash/Personajes');
+    const token = authService.getToken();
+    const headers: HeadersInit = {};
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+
+    const response = await fetch(url_entorno() + '/apiSmash/Personajes', { headers });
     const data = await response.json();
-    // console.log("data",data)
     return data;
   }
 }

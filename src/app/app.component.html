@@ -1,11 +1,21 @@
-
-<app-toolbar></app-toolbar>
-
-<div class="content" role="main">
-
-  <app-matchups></app-matchups>
-    <app-btn-backup></app-btn-backup>
-       <h3>Nota: Utilizar nombres originales para filtros en esta version,no las abrev</h3>
+<!-- Si NO está autenticado, mostrar SOLO el login -->
+<div *ngIf="!isAuthenticated" class="login-wrapper">
+  <app-login></app-login>
 </div>
 
+<!-- Si SÍ está autenticado, mostrar toda la aplicación -->
+<div *ngIf="isAuthenticated">
+  <!-- Header con info de usuario y logout -->
+  <div class="auth-header">
+    <span class="user-info">👤 {{ userEmail }}</span>
+    <button class="logout-btn" (click)="logout()">🚪 Cerrar Sesión</button>
+  </div>
 
+  <app-toolbar></app-toolbar>
+
+  <div class="content" role="main">
+    <app-matchups></app-matchups>
+    <app-btn-backup></app-btn-backup>
+    <h3>Nota: Utilizar nombres originales para filtros en esta version,no las abrev</h3>
+  </div>
+</div>
