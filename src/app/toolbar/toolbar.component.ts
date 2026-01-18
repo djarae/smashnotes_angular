@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class ToolbarComponent {
 
+  @Input() userEmail: string = '';
+  @Output() logoutClick = new EventEmitter<void>();
+
+  onLogout(): void {
+    this.logoutClick.emit();
+  }
 }

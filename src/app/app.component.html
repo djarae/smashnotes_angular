@@ -6,12 +6,7 @@
 <!-- Si SÍ está autenticado, mostrar toda la aplicación -->
 <div *ngIf="isAuthenticated">
   <!-- Header con info de usuario y logout -->
-  <div class="auth-header">
-    <span class="user-info">👤 {{ userEmail }}</span>
-    <button class="logout-btn" (click)="logout()">🚪 Cerrar Sesión</button>
-  </div>
-
-  <app-toolbar></app-toolbar>
+  <app-toolbar [userEmail]="userEmail" (logoutClick)="logout()"></app-toolbar>
 
   <div class="content" role="main">
     <app-matchups></app-matchups>
