@@ -199,7 +199,7 @@
       </tbody>
     </table>
     <!-- CHECKBOXS DI -->
-    <div style="display: flex; align-items: center; gap: 10px;">
+    <!-- <div style="display: flex; align-items: center; gap: 10px;">
       <span><strong>D.I:</strong></span>
       <label>
         <input type="checkbox" name="di" value="si">
@@ -210,9 +210,12 @@
         <input type="checkbox" name="di" value="no">
         NO
       </label>
+    </div> -->
+    <!-- BTN AGREGAR Y BACKUP -->
+    <div style="display: flex; justify-content: center; gap: 10px; margin-top: 15px;">
+      <app-agr-registro (actualizarLista)="cargarRegistros()"></app-agr-registro>
+      <app-btn-backup></app-btn-backup>
     </div>
-    <!-- BTN AGREGAR -->
-    <app-agr-registro (actualizarLista)="cargarRegistros()"></app-agr-registro>
   </div>
 
 </div>
